@@ -11,4 +11,4 @@ Things the site needs from you before it's ready for clients. Nothing here was m
 - [x] **Sharing image**: `assets/brand/og-image.jpg` is set on every page. If you add a custom domain, update the `og:url` and `og:image` addresses in each page's `<head>`.
 - [ ] **Lacrosse photos**: the Basalt Lacrosse concept uses real game photos. Confirm the players and families are fine with that, or swap them (open question carried over from the vault).
 - [ ] **Real client work**: when you finish a paid project, add it to the top of the `work` list in `js/config.js` with a screenshot in `assets/work/`.
-- [ ] **AI help bot** → follow `../help-bot-worker/README.md` (OpenAI API key, free Cloudflare account, four Terminal commands), then put the Worker address in `js/config.js` → `helpBot.endpoint`. Set a monthly budget limit in your OpenAI account.
+- [x] **AI help bot** → live: Cloudflare Worker `hq-help-bot` using your OpenAI key (see `../help-bot-worker/README.md`). Keep a monthly budget limit set in OpenAI.

@@ -45,7 +45,7 @@ window.SITE = {
 
   // AI help bot (js/help-bot.js). Paste the Cloudflare Worker's address + "/chat",
   // e.g. "https://hq-help-bot.yourname.workers.dev/chat". "" = bot hidden.
-  helpBot: { endpoint: "" },
+  helpBot: { endpoint: "https://hq-help-bot.hq-help-bot.workers.dev/chat" },
 
   services: [
     {
