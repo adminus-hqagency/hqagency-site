@@ -18,13 +18,9 @@ Business details, nav, services and the example sites list are all in `js/config
 
 ## Contact form
 
-The form uses **Netlify Forms** (`form.endpoint: "netlify"` in `js/config.js`), so it only sends when the site is hosted on Netlify.
+Messages go to **Formspree** (`form.endpoint` in `js/config.js`, and the form's `action` in `contact.html`). Formspree emails each one to the address on the Formspree account and keeps a copy in its dashboard. The `_gotcha` field is Formspree's spam honeypot.
 
-1. In Netlify: your site → **Forms** → **Enable form detection**.
-2. Redeploy (drag this folder onto **Deploys**). A form called `contact` appears under Forms.
-3. To get each message by email: **Site configuration → Notifications → Emails and webhooks → Form submission notifications → Add notification → Email notification**, form `contact`.
-
-To use Formspree instead, paste its endpoint into `form.endpoint`. With `""`, the form tells visitors plainly that nothing was sent.
+To switch to Netlify Forms, set `form.endpoint` to `"netlify"` and add `data-netlify="true"` plus a hidden `form-name` field to the form. With `""`, the form tells visitors plainly that nothing was sent.
 
 ## Publish
 

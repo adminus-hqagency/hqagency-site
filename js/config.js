@@ -36,7 +36,7 @@ window.SITE = {
   //   "netlify"                        = Netlify Forms (site must be hosted on Netlify)
   //   "https://formspree.io/f/xxxxxx"  = Formspree or another form service
   //   ""                               = not connected (the form says nothing was sent)
-  form: { endpoint: "netlify" },
+  form: { endpoint: "https://formspree.io/f/mgakrgeb" },
 
   services: [
     {
