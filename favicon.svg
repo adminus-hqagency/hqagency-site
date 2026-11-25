@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#101216"/><path d="M46 0h4a14 14 0 0 1 14 14v4H52a6 6 0 0 1-6-6z" fill="#ff5b23"/><text x="31" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="26" fill="#f1f2f4">HQ</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="HQ Agency">
+  <title>HQ Agency</title>
+  <rect x="0" y="0" width="512" height="512" rx="112.64" fill="#101216"/>
+  <path fill="#ff5b23" d="M373.76,0 H399.36 A112.64,112.64 0 0 1 512,112.64 V138.24 H399.36 A25.6,25.6 0 0 1 373.76,112.64000000000001 Z"/>
+  <clipPath id="clip1"><rect x="-20" y="0" width="230" height="100"/></clipPath>
+  <g transform="translate(75.52 184.32) scale(1.7920)">
+   <g clip-path="url(#clip1)" fill="none" stroke="#f1f2f4" stroke-width="17" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path transform="translate(0.00 0)" d="M8.5,-10 V110 M67.5,-10 V110 M8.5,50 H67.5"/>
+    <path transform="translate(88.00 0)" d="M8.5,50.0 A41.5,41.5 0 1 0 91.5,50.0 A41.5,41.5 0 1 0 8.5,50.0 Z M58.0,58.0 L104,106"/>
+   </g>
+  </g>
+</svg>

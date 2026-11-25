@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 696 200" width="696" height="200" role="img" aria-label="HQ Agency">
+  <title>HQ Agency</title>
+  <rect x="0" y="0" width="200" height="200" rx="44.0" fill="#101216"/>
+  <path fill="#ff5b23" d="M146.0,0 H156.0 A44.0,44.0 0 0 1 200,44.0 V54.0 H156.0 A10.0,10.0 0 0 1 146.0,44.0 Z"/>
+  <clipPath id="clip2"><rect x="-20" y="0" width="230" height="100"/></clipPath>
+  <g transform="translate(29.50 72.00) scale(0.7000)">
+   <g clip-path="url(#clip2)" fill="none" stroke="#f1f2f4" stroke-width="17" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path transform="translate(0.00 0)" d="M8.5,-10 V110 M67.5,-10 V110 M8.5,50 H67.5"/>
+    <path transform="translate(88.00 0)" d="M8.5,50.0 A41.5,41.5 0 1 0 91.5,50.0 A41.5,41.5 0 1 0 8.5,50.0 Z M58.0,58.0 L104,106"/>
+   </g>
+  </g>
+  <clipPath id="clip1"><rect x="-20" y="0" width="648" height="100"/></clipPath>
+  <g transform="translate(246.00 63.00) scale(0.7400)">
+   <g clip-path="url(#clip1)" fill="none" stroke="#101216" stroke-width="17" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path transform="translate(0.00 0)" d="M-6.749999999999993,115 L45.0,-6 L96.75,115 M18.4,68 H71.6"/>
+    <path transform="translate(108.00 0)" d="M80.84,22.23 A41.5,41.5 0 1 0 91.50,50.00 V52.0 M100.0,50.0 H54.0"/>
+    <path transform="translate(228.00 0)" d="M68,8.5 H8.5 V91.5 H68 M8.5,50 H60"/>
+    <path transform="translate(318.00 0)" d="M8.5,115 V8.5 L71.5,91.5 V-15"/>
+    <path transform="translate(420.00 0)" d="M80.84,22.23 A41.5,41.5 0 1 0 80.84,77.77"/>
+    <path transform="translate(522.00 0)" d="M-2,-14 L43.0,54 L88,-14 M43.0,52 V115"/>
+   </g>
+  </g>
+</svg>

@@ -22,7 +22,12 @@ window.SITE = {
     instagramHandle: "",
   },
 
-  logo: { src: "", alt: "", height: 26 },
+  logo: {
+    src: "assets/brand/hq-logo-horizontal.svg",          // from brand-kit/svg
+    srcOnDark: "assets/brand/hq-logo-horizontal-white.svg",
+    alt: "HQ Agency",
+    height: 34,
+  },
 
   cta: { label: "Start a project", href: "contact.html" },
 

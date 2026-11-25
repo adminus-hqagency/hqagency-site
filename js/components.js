@@ -10,13 +10,16 @@
     String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   site.esc = esc;
 
-  const brandMarkup = (withLogo) => {
-    const logo =
-      withLogo && site.logo && site.logo.src
-        ? `<img src="${esc(site.logo.src)}" alt="${esc(site.logo.alt)}" height="${site.logo.height || 26}" style="height:${site.logo.height || 26}px" /><span class="brand__divider" aria-hidden="true"></span>`
-        : "";
+  /* Logo: the brand-kit SVG when set in config (dark version in the footer),
+     otherwise a type-only fallback. */
+  const brandMarkup = (onDark) => {
+    const src = site.logo && (onDark ? site.logo.srcOnDark || site.logo.src : site.logo.src);
+    if (src) {
+      const h = site.logo.height || 34;
+      return `<img class="brand__logo" src="${esc(src)}" alt="${esc(site.logo.alt || b.name)}" height="${h}" style="height:${h}px;width:auto" />`;
+    }
     const [bold, light] = b.wordmark || [b.name, ""];
-    return `${logo}<span class="brand__word"><span class="brand__tile" aria-hidden="true">${esc(bold)}</span>${light ? `<span>${esc(light)}</span>` : ""}</span>`;
+    return `<span class="brand__word"><span class="brand__tile" aria-hidden="true">${esc(bold)}</span>${light ? `<span>${esc(light)}</span>` : ""}</span>`;
   };
   const current = (el, key) => (el.getAttribute("current") === key ? ' aria-current="page"' : "");
 
@@ -33,7 +36,7 @@
         <a class="skip-link" href="#main">Skip to content</a>
         <header class="site-header">
           <div class="container site-header__bar">
-            <a class="brand" href="index.html" aria-label="${esc(b.name)}, home">${brandMarkup(true)}</a>
+            <a class="brand" href="index.html" aria-label="${esc(b.name)}, home">${brandMarkup(false)}</a>
             <nav class="nav" aria-label="Main">
               <ul class="nav__list">${navLinks}</ul>
               <a class="btn btn--sm" href="${esc(site.cta.href)}">${esc(site.cta.label)}</a>
@@ -83,7 +86,7 @@
         <footer class="site-footer">
           <div class="container site-footer__top">
             <div>
-              <a class="brand" href="index.html" aria-label="${esc(b.name)}, home">${brandMarkup(false)}</a>
+              <a class="brand" href="index.html" aria-label="${esc(b.name)}, home">${brandMarkup(true)}</a>
               <p class="site-footer__blurb">${esc(b.tagline)}${b.city ? ` Based in ${esc(b.city)}, ${esc(b.stateLong)}.` : ""}</p>
             </div>
             <div>
