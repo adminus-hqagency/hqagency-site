@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Basin &amp; Range River Co. | Concept site by HQ Agency</title>
+  <meta name="description" content="Concept website for a fictional river rafting outfitter, designed by HQ Agency." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" />
+  <style>
+    :root {
+      --paper: #f1ece1; --paper-2: #e5dccb; --forest: #1e3a2c; --forest-2: #2c4f3d; --ink: #1b1d1a; --muted: #5e5a50;
+      --rust: #b8501f; --rust-dark: #9a4116; --sky: #cfe0dc; --line: #cfc5b2; --max: 1240px;
+      --cond: "Barlow Condensed", "Arial Narrow", sans-serif; --sans: "Barlow", system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    h1, h2, h3, p, ul { margin: 0; padding: 0; }
+    .wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
+    :focus-visible { outline: 3px solid var(--rust); outline-offset: 2px; }
+    .cap { font-family: var(--cond); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; font-size: 14px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 24px; font-family: var(--cond); font-weight: 700; font-size: 18px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; border: 2px solid var(--rust); background: var(--rust); color: #fff; transition: background-color .2s, border-color .2s, color .2s; }
+    .btn:hover { background: var(--rust-dark); border-color: var(--rust-dark); }
+    .btn--line { background: transparent; color: inherit; border-color: currentColor; }
+    .btn--line:hover { background: rgba(255,255,255,.1); border-color: currentColor; }
+
+    /* Announcement + nav */
+    .note { background: var(--forest); color: #e9e4d6; text-align: center; padding: 8px 16px; font-size: 14px; }
+    .note a { color: #fff; font-weight: 600; }
+    .nav { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 2px solid var(--ink); }
+    .nav__bar { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 66px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--cond); font-weight: 800; font-size: 24px; text-transform: uppercase; letter-spacing: .02em; line-height: 1; }
+    .logo svg { width: 34px; height: 34px; }
+    .nav__links { display: flex; gap: 26px; }
+    .nav__links a { text-decoration: none; }
+    .nav__links a:hover { color: var(--rust); }
+    @media (max-width: 780px) { .nav__links { display: none; } .nav .btn { min-height: 44px; padding: 8px 16px; font-size: 16px; } }
+
+    /* Hero */
+    .hero { position: relative; color: #fff; min-height: min(86vh, 760px); display: flex; align-items: flex-end; overflow: hidden; background: var(--forest); }
+    .hero svg.scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(14,26,20,.86), rgba(14,26,20,.5) 55%, rgba(14,26,20,.2)); }
+    .hero__content { position: relative; z-index: 1; padding-block: clamp(40px, 7vw, 80px); }
+    .hero h1 { font-family: var(--cond); font-weight: 800; text-transform: uppercase; font-size: clamp(60px, 11vw, 168px); line-height: .84; letter-spacing: -.01em; margin-top: 14px; }
+    .hero p.sub { margin-top: 20px; max-width: 44ch; font-size: clamp(17px, 1.8vw, 20px); color: #ece7da; }
+    .hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .hero .meta { position: absolute; right: clamp(16px, 4vw, 48px); top: 24px; z-index: 2; text-align: right; color: #fff; }
+
+    /* Report strip */
+    .report { background: var(--ink); color: #e9e4d6; }
+    .report ul { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .report li { padding: 18px 20px; border-right: 1px solid #3a3d38; }
+    .report li:last-child { border-right: 0; }
+    .report b { display: block; font-family: var(--cond); font-size: 30px; font-weight: 700; color: #fff; line-height: 1.1; }
+    .report span { font-size: 13px; color: #b5b0a2; }
+    @media (max-width: 760px) { .report ul { grid-template-columns: 1fr 1fr; } .report li:nth-child(2) { border-right: 0; } .report li:nth-child(-n+2) { border-bottom: 1px solid #3a3d38; } }
+
+    /* Trip finder */
+    .section { padding-block: clamp(64px, 9vw, 120px); }
+    .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px 40px; margin-bottom: 32px; }
+    .head h2 { font-family: var(--cond); font-weight: 800; text-transform: uppercase; font-size: clamp(44px, 6vw, 84px); line-height: .9; margin-top: 10px; }
+    .head p { max-width: 42ch; color: var(--muted); }
+    .kicker { color: var(--rust); }
+    .filters { display: flex; flex-wrap: wrap; gap: 20px 36px; padding: 18px 0; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); }
+    .filters fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .filters legend { float: left; margin-right: 6px; color: var(--muted); }
+    .chip { min-height: 40px; padding: 6px 14px; border: 2px solid var(--ink); background: transparent; font: 600 15px var(--sans); cursor: pointer; }
+    .chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+    .chip:hover { background: var(--paper-2); } .chip[aria-pressed="true"]:hover { background: var(--forest); }
+    .count { margin: 18px 0 22px; color: var(--muted); }
+    .trips { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .trip { background: #fbf8f1; border: 2px solid var(--ink); display: flex; flex-direction: column; }
+    .trip__art { aspect-ratio: 16 / 9; display: block; border-bottom: 2px solid var(--ink); }
+    .trip__body { padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .trip h3 { font-family: var(--cond); font-weight: 800; text-transform: uppercase; font-size: 30px; line-height: .95; }
+    .trip p { color: var(--muted); font-size: 15px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-family: var(--cond); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; font-size: 13px; padding: 3px 8px; background: var(--paper-2); }
+    .tag--class { background: var(--forest); color: #fff; }
+    .trip__foot { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .trip__foot b { font-family: var(--cond); font-size: 26px; }
+    .trip__foot a { font-family: var(--cond); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--rust); text-decoration: none; }
+    .empty { grid-column: 1 / -1; padding: 40px; text-align: center; border: 2px dashed var(--line); color: var(--muted); }
+    @media (max-width: 960px) { .trips { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 620px) { .trips { grid-template-columns: 1fr; } }
+
+    /* Values */
+    .values { background: var(--forest); color: #ece7da; }
+    .values .head h2 { color: #fff; }
+    .values .head p { color: #c9c3b3; }
+    .values .kicker { color: #f0a26f; }
+    .vgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #4a6656; }
+    .vgrid div { padding: 26px 26px 0 0; }
+    .vgrid div + div { padding-left: 26px; border-left: 1px solid #4a6656; }
+    .vgrid b { font-family: var(--cond); font-size: 56px; font-weight: 800; color: #fff; line-height: 1; }
+    .vgrid h3 { font-family: var(--cond); text-transform: uppercase; font-size: 24px; margin-top: 8px; color: #fff; }
+    .vgrid p { color: #c9c3b3; font-size: 15px; margin-top: 6px; }
+    @media (max-width: 760px) { .vgrid { grid-template-columns: 1fr; } .vgrid div + div { padding-left: 0; border-left: 0; border-top: 1px solid #4a6656; margin-top: 20px; } }
+
+    /* CTA + footer */
+    .cta { background: var(--rust); color: #fff; }
+    .cta .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+    .cta h2 { font-family: var(--cond); font-weight: 800; text-transform: uppercase; font-size: clamp(40px, 6vw, 80px); line-height: .9; }
+    .cta .btn { background: var(--ink); border-color: var(--ink); }
+    .cta .btn:hover { background: #000; }
+    footer { background: var(--ink); color: #a7a294; font-size: 14px; padding-block: 26px 90px; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+    .concept { position: fixed; left: 16px; bottom: 16px; z-index: 20; padding: 8px 14px; background: var(--paper); border: 2px solid var(--ink); font-size: 13px; font-weight: 600; }
+    .concept a { color: var(--rust); }
+  </style>
+</head>
+<body>
+  <p class="note">Sample season dates · Spring trips open in April · <a href="#trips">See trips</a></p>
+  <header class="nav">
+    <div class="wrap nav__bar">
+      <a class="logo" href="#top" aria-label="Basin and Range River Company, home">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" fill="#1e3a2c"/><path d="M4 28 14 14l6 8 5-6 11 12z" fill="#f1ece1"/><path d="M4 31c5-3 9 3 14 0s9 3 14 0 4-1 4-1v3H4z" fill="#b8501f"/></svg>
+        <span>Basin &amp; Range<br /><span class="cap" style="font-size:12px;letter-spacing:.16em">River Co.</span></span>
+      </a>
+      <nav class="nav__links cap" aria-label="Main" style="font-size:16px"><a href="#trips">Trips</a><a href="#values">How we run</a><a href="#book">Groups</a></nav>
+      <a class="btn" href="#trips">Book a trip</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <svg class="scene" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3b26b"/><stop offset=".55" stop-color="#e9c99a"/><stop offset="1" stop-color="#cfe0dc"/></linearGradient></defs>
+        <rect width="1440" height="760" fill="url(#sky)"/>
+        <circle cx="1060" cy="250" r="70" fill="#fbe3b5"/>
+        <path d="M0 360 140 250l120 70 160-150 170 130 120-60 190 120 150-110 170 90 120-60v520H0z" fill="#b88a6a"/>
+        <path d="M0 430 180 330l150 80 200-120 210 140 160-70 210 100 170-60 160 60v360H0z" fill="#8a6650"/>
+        <path d="M0 500 220 420l160 60 240-90 180 100 200-60 220 70 220-40v400H0z" fill="#4f5b43"/>
+        <path d="M0 560c180-30 320 20 520-10s360-60 560-20 260 30 360 20v210H0z" fill="#2c4f3d"/>
+        <path d="M0 640c160-40 300 30 470-5s300-55 480-10 330 30 490 0v135H0z" fill="#3f8a92"/>
+        <path d="M120 660c60-8 120 6 190-2M560 640c70-10 150 4 210-4M980 650c60-8 140 6 200-2" stroke="#cfe0dc" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+        <path d="M0 700c200-20 380 25 600 0s420-30 840 0v60H0z" fill="#1e3a2c"/>
+      </svg>
+      <span class="meta cap" aria-hidden="true">Lower Snake country<br />Class II – IV</span>
+      <div class="wrap hero__content">
+        <p class="cap" style="color:#fff">Guided river trips since 2009 (fictional)</p>
+        <h1 id="hero-title">Get on<br />the water</h1>
+        <p class="sub">Half-day floats, full-day whitewater and overnight canyon trips, guided by people who grew up on these rivers.</p>
+        <div class="hero__ctas"><a class="btn" href="#trips">Find your trip</a><a class="btn btn--line" href="#values">How we run</a></div>
+      </div>
+    </section>
+
+    <section class="report" aria-label="Sample river report">
+      <ul class="wrap">
+        <li><b>4,200 cfs</b><span>Sample flow, main stem</span></li>
+        <li><b>58°F</b><span>Water temperature</span></li>
+        <li><b>Class III</b><span>Today's top rapid</span></li>
+        <li><b>6 spots</b><span>Left this Saturday</span></li>
+      </ul>
+    </section>
+
+    <section class="section" id="trips" aria-labelledby="trips-title">
+      <div class="wrap">
+        <div class="head">
+          <div><p class="cap kicker">Trip finder</p><h2 id="trips-title">Pick your<br />water</h2></div>
+          <p>Filter by how wild you want it and how long you have. Every trip includes gear, guides and a riverside meal.</p>
+        </div>
+        <div class="filters">
+          <fieldset data-filter="level"><legend class="cap">Difficulty</legend>
+            <button class="chip" type="button" data-value="all" aria-pressed="true">All</button>
+            <button class="chip" type="button" data-value="family" aria-pressed="false">Family</button>
+            <button class="chip" type="button" data-value="intermediate" aria-pressed="false">Intermediate</button>
+            <button class="chip" type="button" data-value="advanced" aria-pressed="false">Advanced</button>
+          </fieldset>
+          <fieldset data-filter="length"><legend class="cap">Length</legend>
+            <button class="chip" type="button" data-value="all" aria-pressed="true">Any</button>
+            <button class="chip" type="button" data-value="half" aria-pressed="false">Half day</button>
+            <button class="chip" type="button" data-value="full" aria-pressed="false">Full day</button>
+            <button class="chip" type="button" data-value="overnight" aria-pressed="false">Overnight</button>
+          </fieldset>
+        </div>
+        <p class="count cap" aria-live="polite" data-count></p>
+        <ul class="trips" data-trips></ul>
+      </div>
+    </section>
+
+    <section class="section values" id="values" aria-labelledby="values-title">
+      <div class="wrap">
+        <div class="head">
+          <div><p class="cap kicker">How we run</p><h2 id="values-title">Leave it<br />better</h2></div>
+          <p>Rivers are the reason we exist, so we run small groups and give back to the water we guide on.</p>
+        </div>
+        <div class="vgrid">
+          <div><b>8</b><h3>Guests per boat, max</h3><p>Smaller boats mean more paddling, more stories and less crowding at the put-in.</p></div>
+          <div><b>1:4</b><h3>Guide-to-guest ratio</h3><p>Every guide is swiftwater-rescue and first-aid certified before their first trip.</p></div>
+          <div><b>2%</b><h3>Of every booking</h3><p>Goes to river cleanups and native-plant restoration along the banks.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta" id="book" aria-labelledby="cta-title">
+      <div class="wrap">
+        <h2 id="cta-title">Bringing<br />a crew?</h2>
+        <div><p style="max-width:36ch;margin-bottom:18px">Teams, schools and families of 10 or more get a private boat and a dedicated guide.</p><a class="btn" href="#top">Plan a group trip</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span>© Basin &amp; Range River Co. (fictional)</span><span>Guided rafting · Eastern Washington</span></div></footer>
+  <p class="concept">Concept site by HQ Agency · fictional business · <a href="../../work.html" target="_top">Back</a></p>
+
+  <script>
+    (function () {
+      const ART = {
+        family: ["#cfe0dc", "#8fb3a3", "#3f8a92"], intermediate: ["#f3d3a8", "#a7795c", "#2c4f3d"], advanced: ["#e7b48a", "#5e4a3c", "#1e3a2c"],
+      };
+      const TRIPS = [
+        { name: "Sunset float", level: "family", length: "half", cls: "Class I–II", price: 65, text: "A slow evening drift with swimming stops and a riverside dinner." },
+        { name: "Canyon splash", level: "family", length: "full", cls: "Class II", price: 120, text: "Gentle rapids, a cliff-jump eddy and lunch on a sandbar." },
+        { name: "Rapids sampler", level: "intermediate", length: "half", cls: "Class III", price: 89, text: "Four named rapids in four hours. The best first taste of whitewater." },
+        { name: "Big water day", level: "intermediate", length: "full", cls: "Class III", price: 149, text: "Eighteen river miles, two big drops and a steak lunch." },
+        { name: "Two-night canyon", level: "intermediate", length: "overnight", cls: "Class II–III", price: 495, text: "Camp under the stars on sandy beaches. We carry the gear." },
+        { name: "Gorge run", level: "advanced", length: "full", cls: "Class IV", price: 199, text: "Paddle-raft only. Fitness check and swim test at the put-in." },
+        { name: "Whitewater expedition", level: "advanced", length: "overnight", cls: "Class III–IV", price: 690, text: "Three days, forty miles and the biggest rapids in the region." },
+      ];
+      const LEN = { half: "Half day", full: "Full day", overnight: "Overnight" };
+      const LVL = { family: "Family", intermediate: "Intermediate", advanced: "Advanced" };
+      const state = { level: "all", length: "all" };
+      const list = document.querySelector("[data-trips]");
+      const count = document.querySelector("[data-count]");
+      const art = (lvl, i) => { const [a, b, c] = ART[lvl]; return `<svg class="trip__art" viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="320" height="180" fill="${a}"/><path d="M0 ${90 + (i % 3) * 8} ${60 + i * 9} ${50 + (i % 2) * 14} 140 95l60-40 70 50 50-30v105H0z" fill="${b}"/><path d="M0 140c50-10 100 8 160 0s110-12 160 0v40H0z" fill="${c}"/><path d="M30 152c20-3 40 2 60-1M170 150c22-3 46 2 70-1" stroke="#fff" stroke-width="2" fill="none" opacity=".6"/></svg>`; };
+      function render() {
+        const items = TRIPS.filter((t) => (state.level === "all" || t.level === state.level) && (state.length === "all" || t.length === state.length));
+        count.textContent = `${items.length} trip${items.length === 1 ? "" : "s"} match`;
+        list.innerHTML = items.length ? items.map((t, i) => `
+          <li class="trip">${art(t.level, i)}
+            <div class="trip__body">
+              <div class="tags"><span class="tag tag--class">${t.cls}</span><span class="tag">${LVL[t.level]}</span><span class="tag">${LEN[t.length]}</span></div>
+              <h3>${t.name}</h3><p>${t.text}</p>
+              <div class="trip__foot"><b>$${t.price}<span style="font-size:14px;font-family:var(--sans);font-weight:400;color:var(--muted)"> / person</span></b><a href="#book">Book →</a></div>
+            </div>
+          </li>`).join("") : `<li class="empty">No trips match both filters yet. Try a different length.</li>`;
+      }
+      document.querySelectorAll("[data-filter]").forEach((fs) => {
+        fs.addEventListener("click", (e) => {
+          const chip = e.target.closest(".chip");
+          if (!chip) return;
+          fs.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", String(c === chip)));
+          state[fs.dataset.filter] = chip.dataset.value;
+          render();
+        });
+      });
+      render();
+    })();
+  </script>
+</body>
+</html>

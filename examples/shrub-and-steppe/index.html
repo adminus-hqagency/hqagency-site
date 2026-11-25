@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shrub &amp; Steppe Café | Concept site by HQ Agency</title>
+  <meta name="description" content="Concept website for a fictional neighborhood café, designed by HQ Agency." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=DM+Sans:wght@400;500;700&display=swap" />
+  <style>
+    :root { --cream: #f4f1e6; --cream-2: #ebe6d4; --green: #1f3d2b; --green-2: #2f5a3f; --lime: #c9e265; --terra: #c2643b; --text: #1f2a22; --muted: #5d6658; --line: #d6d0bb; --max: 1240px; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+    body { margin: 0; background: var(--cream); color: var(--text); font-family: "DM Sans", system-ui, sans-serif; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, p { margin: 0; }
+    button { font: inherit; color: inherit; }
+    .wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+    .serif { font-family: "Fraunces", Georgia, serif; font-optical-sizing: auto; }
+    :focus-visible { outline: 2px solid var(--terra); outline-offset: 3px; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 24px; border-radius: 999px; font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; transition: background-color .2s, color .2s; }
+    .btn--lime { background: var(--lime); color: var(--green); } .btn--lime:hover { background: #d8ee82; }
+    .btn--green { background: var(--green); color: var(--cream); } .btn--green:hover { background: var(--green-2); }
+    .link { font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; border-bottom: 1.5px solid currentColor; padding-bottom: 2px; }
+
+    /* Nav */
+    .nav { border-bottom: 1px solid var(--line); }
+    .nav__bar { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 74px; }
+    .nav__links { display: flex; gap: 26px; font-size: 15px; font-weight: 500; }
+    .nav__links a:hover { color: var(--terra); }
+    .logo { font-family: "Fraunces", serif; font-size: 24px; font-weight: 600; color: var(--green); letter-spacing: -.01em; }
+    .logo i { font-weight: 300; }
+    .nav__order { justify-self: end; }
+    @media (max-width: 760px) { .nav__links { display: none; } .nav__bar { grid-template-columns: 1fr auto; } .logo { font-size: 21px; } }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(24px, 5vw, 64px); align-items: center; padding-block: clamp(48px, 8vw, 104px); }
+    .hero__kicker { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--terra); }
+    .hero h1 { margin-top: 16px; font-size: clamp(46px, 7vw, 96px); font-weight: 300; line-height: 1; letter-spacing: -.03em; color: var(--green); }
+    .hero h1 em { font-style: italic; font-weight: 400; }
+    .hero p { margin-top: 22px; color: var(--muted); max-width: 40ch; font-size: 19px; }
+    .hero__ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; margin-top: 32px; }
+    .art { width: 100%; height: auto; display: block; border-radius: 28px; }
+    @media (max-width: 860px) { .hero { grid-template-columns: 1fr; } .art { max-width: 520px; } }
+
+    /* Strip */
+    .strip { background: var(--green); color: var(--cream); }
+    .strip .wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-block: 28px; }
+    .strip b { display: block; font-family: "Fraunces", serif; font-weight: 400; font-size: 22px; }
+    .strip span { color: #b9c8b8; font-size: 15px; }
+    @media (max-width: 700px) { .strip .wrap { grid-template-columns: 1fr; } }
+
+    section { padding-block: clamp(64px, 9vw, 112px); }
+    .sec-title { font-family: "Fraunces", serif; font-weight: 300; font-size: clamp(38px, 5.4vw, 68px); line-height: 1.02; letter-spacing: -.025em; color: var(--green); }
+    .sec-title em { font-style: italic; }
+
+    /* Menu */
+    .menu-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 36px; }
+    .tabs { display: inline-flex; background: var(--cream-2); border-radius: 999px; padding: 4px; gap: 4px; }
+    .tab { border: 0; background: transparent; border-radius: 999px; padding: 10px 20px; font-weight: 700; font-size: 14px; cursor: pointer; min-height: 44px; }
+    .tab[aria-selected="true"] { background: var(--green); color: var(--cream); }
+    .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; }
+    .item { display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: 10px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .item h3 { font-family: "Fraunces", serif; font-weight: 400; font-size: 21px; }
+    .item .dots { border-bottom: 1.5px dotted var(--line); transform: translateY(-5px); }
+    .item .price { font-weight: 700; }
+    .item p { grid-column: 1 / -1; color: var(--muted); font-size: 15px; margin-top: -4px; }
+    .item .tag { display: inline-block; margin-left: 8px; font-family: "DM Sans", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--green); background: var(--lime); padding: 2px 7px; border-radius: 999px; vertical-align: middle; }
+    @media (max-width: 760px) { .menu-grid { grid-template-columns: 1fr; } }
+
+    /* Special */
+    .special { background: var(--terra); color: #fff8ef; border-radius: 28px; padding: clamp(28px, 5vw, 56px); display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px; align-items: center; }
+    .special small { font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 12px; }
+    .special h2 { font-family: "Fraunces", serif; font-weight: 300; font-size: clamp(32px, 4.4vw, 54px); line-height: 1.04; margin-top: 10px; }
+    .special p { opacity: .88; margin-top: 12px; max-width: 42ch; }
+    .special__price { justify-self: end; text-align: right; font-family: "Fraunces", serif; font-size: clamp(56px, 8vw, 96px); line-height: 1; }
+    .special__price span { display: block; font-family: "DM Sans", sans-serif; font-size: 14px; opacity: .85; }
+    @media (max-width: 700px) { .special { grid-template-columns: 1fr; } .special__price { justify-self: start; text-align: left; } }
+
+    /* Visit */
+    .visit { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
+    .hours { margin-top: 28px; width: 100%; border-collapse: collapse; }
+    .hours th, .hours td { padding: 12px 0; border-bottom: 1px solid var(--line); text-align: left; font-weight: 500; }
+    .hours td { text-align: right; color: var(--muted); }
+    .hours tr.today th, .hours tr.today td { color: var(--terra); font-weight: 700; }
+    .map { border-radius: 28px; overflow: hidden; background: var(--cream-2); }
+    .map svg { display: block; width: 100%; height: auto; }
+    .addr { margin-top: 16px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    @media (max-width: 860px) { .visit { grid-template-columns: 1fr; } }
+
+    footer { background: var(--green); color: #b9c8b8; padding-block: 40px 96px; font-size: 14px; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+    footer .logo { color: var(--cream); }
+
+    .concept { position: fixed; left: 16px; bottom: 16px; z-index: 20; display: flex; align-items: center; gap: 10px; padding: 9px 16px; border-radius: 999px; background: var(--lime); color: var(--green); font-size: 12px; font-weight: 700; box-shadow: 0 6px 20px rgba(31,61,43,.2); }
+    .concept a { text-decoration: underline; text-underline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav__bar">
+      <nav class="nav__links" aria-label="Main"><a href="#menu">Menu</a><a href="#visit">Visit</a></nav>
+      <a class="logo" href="#top" aria-label="Shrub and Steppe Café, home">Shrub <i>&amp;</i> Steppe</a>
+      <a class="btn btn--lime nav__order" href="#menu">Order ahead →</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap hero">
+      <div>
+        <p class="hero__kicker">Coffee · Breakfast · Lunch</p>
+        <h1 class="serif">Slow mornings, <em>made from scratch.</em></h1>
+        <p>A neighborhood café pouring single-origin coffee and cooking seasonal plates with flour, eggs, and greens from farms just up the river.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--green" href="#menu">See the menu</a>
+          <a class="link" href="#visit">Hours &amp; location</a>
+        </div>
+      </div>
+      <!-- Illustrated hero: sun over sagebrush hills (pure SVG, no photo needed) -->
+      <svg class="art" viewBox="0 0 520 560" role="img" aria-label="Illustration of a warm sun rising over sagebrush hills, with a steaming coffee cup.">
+        <rect width="520" height="560" fill="#ebe6d4" />
+        <circle cx="300" cy="220" r="120" fill="#e7a86b" />
+        <circle cx="300" cy="220" r="84" fill="#f2c48d" />
+        <path d="M0 330 C 90 280 170 300 260 330 S 430 360 520 300 V560 H0Z" fill="#8fa77a" />
+        <path d="M0 390 C 120 350 220 380 320 400 S 460 410 520 380 V560 H0Z" fill="#5d7f55" />
+        <path d="M0 450 C 140 420 260 450 360 460 S 470 455 520 440 V560 H0Z" fill="#1f3d2b" />
+        <g fill="#c9e265" opacity=".9">
+          <ellipse cx="70" cy="430" rx="9" ry="20" transform="rotate(-25 70 430)" /><ellipse cx="88" cy="424" rx="9" ry="22" transform="rotate(10 88 424)" /><ellipse cx="104" cy="434" rx="8" ry="18" transform="rotate(35 104 434)" />
+          <ellipse cx="440" cy="420" rx="8" ry="18" transform="rotate(-20 440 420)" /><ellipse cx="456" cy="414" rx="9" ry="21" transform="rotate(12 456 414)" />
+        </g>
+        <g transform="translate(200 440)">
+          <path d="M0 0 H120 L110 78 Q108 92 94 92 H26 Q12 92 10 78Z" fill="#f4f1e6" />
+          <path d="M120 18 Q150 18 148 44 Q146 66 116 64" fill="none" stroke="#f4f1e6" stroke-width="10" />
+          <rect x="0" y="-6" width="120" height="10" rx="5" fill="#c2643b" />
+          <g fill="none" stroke="#f4f1e6" stroke-width="5" stroke-linecap="round" opacity=".85">
+            <path d="M34 -24 q -10 -16 0 -30 q 10 -14 0 -28" /><path d="M60 -24 q -10 -16 0 -30 q 10 -14 0 -28" /><path d="M86 -24 q -10 -16 0 -30 q 10 -14 0 -28" />
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <div class="strip">
+      <div class="wrap">
+        <div><b>Roasted weekly</b><span>Small-batch beans, never older than 14 days</span></div>
+        <div><b>Baked at 5 am</b><span>Pastries and bread made in-house daily</span></div>
+        <div><b>Grown nearby</b><span>Produce from farms within 60 miles</span></div>
+      </div>
+    </div>
+
+    <section id="menu" aria-labelledby="menu-title">
+      <div class="wrap">
+        <div class="menu-head">
+          <h2 class="sec-title" id="menu-title">On the <em>menu</em></h2>
+          <div class="tabs" role="tablist" aria-label="Menu sections">
+            <button class="tab" role="tab" id="t-coffee" aria-controls="p-coffee" aria-selected="true">Coffee</button>
+            <button class="tab" role="tab" id="t-breakfast" aria-controls="p-breakfast" aria-selected="false" tabindex="-1">Breakfast</button>
+            <button class="tab" role="tab" id="t-lunch" aria-controls="p-lunch" aria-selected="false" tabindex="-1">Lunch</button>
+          </div>
+        </div>
+        <div class="menu-grid" role="tabpanel" id="p-coffee" aria-labelledby="t-coffee">
+          <div class="item"><h3>Drip, house blend</h3><span class="dots"></span><span class="price">3.5</span><p>Chocolate, toasted almond, a little cherry.</p></div>
+          <div class="item"><h3>Cortado</h3><span class="dots"></span><span class="price">4.5</span><p>Equal parts espresso and steamed milk.</p></div>
+          <div class="item"><h3>Sage honey latte <span class="tag">Signature</span></h3><span class="dots"></span><span class="price">6</span><p>Local wildflower honey, a whisper of sage.</p></div>
+          <div class="item"><h3>Cold brew</h3><span class="dots"></span><span class="price">5</span><p>Steeped 18 hours. Smooth, never bitter.</p></div>
+        </div>
+        <div class="menu-grid" role="tabpanel" id="p-breakfast" aria-labelledby="t-breakfast" hidden>
+          <div class="item"><h3>Steppe skillet <span class="tag">Favorite</span></h3><span class="dots"></span><span class="price">14</span><p>Crispy potatoes, two eggs, greens, chili oil.</p></div>
+          <div class="item"><h3>Ricotta toast</h3><span class="dots"></span><span class="price">11</span><p>House sourdough, whipped ricotta, seasonal fruit.</p></div>
+          <div class="item"><h3>Overnight oats</h3><span class="dots"></span><span class="price">8</span><p>Oat milk, toasted seeds, berry compote.</p></div>
+          <div class="item"><h3>Morning bun</h3><span class="dots"></span><span class="price">5</span><p>Laminated, orange zest, cinnamon sugar.</p></div>
+        </div>
+        <div class="menu-grid" role="tabpanel" id="p-lunch" aria-labelledby="t-lunch" hidden>
+          <div class="item"><h3>Harvest bowl</h3><span class="dots"></span><span class="price">15</span><p>Farro, roasted squash, feta, herb vinaigrette.</p></div>
+          <div class="item"><h3>Turkey &amp; apple melt</h3><span class="dots"></span><span class="price">14</span><p>Sharp cheddar, apple butter, griddled rye.</p></div>
+          <div class="item"><h3>Tomato soup</h3><span class="dots"></span><span class="price">9</span><p>Roasted tomato, basil oil, grilled bread.</p></div>
+          <div class="item"><h3>Little greens <span class="tag">Veg</span></h3><span class="dots"></span><span class="price">10</span><p>Tender lettuces, shaved radish, lemon.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="special">
+        <div>
+          <small>This week only</small>
+          <h2>Apricot &amp; cardamom galette</h2>
+          <p>Flaky, buttery, and gone by noon most days. Order ahead to save a slice.</p>
+        </div>
+        <p class="special__price">7<span>per slice</span></p>
+      </div>
+    </div>
+
+    <section id="visit" aria-labelledby="visit-title">
+      <div class="wrap visit">
+        <div>
+          <h2 class="sec-title" id="visit-title">Come <em>sit a while.</em></h2>
+          <table class="hours" aria-label="Opening hours">
+            <tbody>
+              <tr><th scope="row">Monday – Friday</th><td>6:30 am – 3 pm</td></tr>
+              <tr class="today"><th scope="row">Saturday</th><td>7 am – 3 pm</td></tr>
+              <tr><th scope="row">Sunday</th><td>8 am – 2 pm</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <div class="map">
+            <svg viewBox="0 0 560 340" role="img" aria-label="Stylized map showing the café near the river downtown.">
+              <rect width="560" height="340" fill="#ebe6d4" />
+              <path d="M-10 250 C 120 210 220 300 340 250 S 520 200 570 230" fill="none" stroke="#a9c4c9" stroke-width="34" />
+              <g stroke="#f4f1e6" stroke-width="12"><path d="M0 120 H560" /><path d="M0 60 H560" /><path d="M140 0 V340" /><path d="M300 0 V340" /><path d="M440 0 V340" /></g>
+              <g fill="#d6d0bb"><rect x="160" y="74" width="124" height="38" rx="6" /><rect x="316" y="74" width="110" height="38" rx="6" /><rect x="20" y="74" width="104" height="38" rx="6" /><rect x="160" y="134" width="124" height="60" rx="6" /><rect x="456" y="134" width="90" height="60" rx="6" /></g>
+              <g transform="translate(370 160)"><circle r="26" fill="#c2643b" /><circle r="9" fill="#f4f1e6" /></g>
+            </svg>
+          </div>
+          <div class="addr"><span>Downtown, two blocks from the river</span><a class="link" href="#top">Get directions</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span class="logo">Shrub <i>&amp;</i> Steppe</span><span>© Shrub &amp; Steppe Café (fictional)</span></div></footer>
+
+  <p class="concept">Concept site by HQ Agency · fictional business · <a href="../../work.html" target="_top">Back</a></p>
+
+  <script>
+    (function () {
+      const tabs = [...document.querySelectorAll('[role="tab"]')];
+      function select(t) {
+        tabs.forEach((x) => {
+          const on = x === t;
+          x.setAttribute("aria-selected", String(on));
+          x.tabIndex = on ? 0 : -1;
+          document.getElementById(x.getAttribute("aria-controls")).hidden = !on;
+        });
+        t.focus();
+      }
+      tabs.forEach((t, i) => {
+        t.addEventListener("click", () => select(t));
+        t.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowRight") select(tabs[(i + 1) % tabs.length]);
+          if (e.key === "ArrowLeft") select(tabs[(i - 1 + tabs.length) % tabs.length]);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

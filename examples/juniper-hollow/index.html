@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Juniper Hollow Florals | Concept site by HQ Agency</title>
+  <meta name="description" content="Concept website for a fictional floral studio, designed by HQ Agency." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Work+Sans:wght@400;500&display=swap" />
+  <style>
+    :root {
+      --paper: #f3efe8; --paper-2: #e9e3d8; --ink: #2b2a26; --muted: #6b675e; --sage: #5f6d4e; --sage-soft: #c9cfbd;
+      --clay: #a35f48; --line: #d6cfc2; --max: 1240px;
+      --serif: "Cormorant Garamond", Georgia, serif; --sans: "Work Sans", system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+    h1, h2, h3, p, ul { margin: 0; padding: 0; }
+    .wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
+    :focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
+    .label { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+    .serif { font-family: var(--serif); font-weight: 400; }
+    .link { text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; font-size: 14px; letter-spacing: .06em; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 28px; background: var(--ink); color: var(--paper); text-decoration: none; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; border: 1px solid var(--ink); transition: background-color .3s, color .3s; }
+    .btn:hover { background: transparent; color: var(--ink); }
+
+    /* Header */
+    header { border-bottom: 1px solid var(--line); }
+    .bar { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 76px; gap: 16px; }
+    .bar nav { display: flex; gap: 28px; font-size: 14px; }
+    .bar nav a { text-decoration: none; color: var(--muted); }
+    .bar nav a:hover { color: var(--ink); }
+    .mark { font-family: var(--serif); font-size: 26px; letter-spacing: .02em; text-decoration: none; text-align: center; line-height: 1.1; }
+    .mark small { display: block; font-family: var(--sans); font-size: 10px; letter-spacing: .32em; text-transform: uppercase; color: var(--muted); }
+    .bar .link { justify-self: end; }
+    @media (max-width: 760px) { .bar { grid-template-columns: 1fr auto; } .bar nav { display: none; } .mark { text-align: left; } }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(28px, 6vw, 88px); align-items: end; padding-block: clamp(40px, 7vw, 96px); }
+    .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(52px, 8.4vw, 128px); line-height: .92; letter-spacing: -.02em; margin-top: 22px; }
+    .hero h1 em { color: var(--sage); }
+    .hero p.sub { margin-top: 28px; max-width: 38ch; color: var(--muted); font-size: 17px; }
+    .hero__ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 28px; margin-top: 34px; }
+    .hero figure { margin: 0; }
+    .hero figure img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 40%; filter: saturate(.85) sepia(.12); }
+    .hero figcaption { margin-top: 12px; display: flex; justify-content: space-between; gap: 12px; }
+    @media (max-width: 820px) { .hero { grid-template-columns: 1fr; } .hero figure img { aspect-ratio: 4 / 3; } }
+
+    /* Offerings */
+    .section { padding-block: clamp(64px, 10vw, 128px); }
+    .tone { background: var(--paper-2); }
+    .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px 40px; margin-bottom: clamp(36px, 5vw, 56px); }
+    .head h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 5vw, 68px); line-height: 1; letter-spacing: -.015em; margin-top: 14px; }
+    .head p { max-width: 40ch; color: var(--muted); }
+    .offer { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+    .offer article { padding: 28px 28px 8px 0; display: flex; flex-direction: column; gap: 12px; }
+    .offer article + article { border-left: 1px solid var(--line); padding-left: 28px; }
+    .offer h3 { font-family: var(--serif); font-weight: 500; font-size: 30px; line-height: 1.1; }
+    .offer p { color: var(--muted); font-size: 15px; }
+    .offer .label { color: var(--clay); }
+    .offer .link { align-self: flex-start; margin-top: 8px; }
+    @media (max-width: 820px) { .offer { grid-template-columns: 1fr; } .offer article + article { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; } }
+
+    /* Season tabs */
+    .season { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(28px, 6vw, 96px); }
+    .tabs { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+    .tab { appearance: none; background: none; border: 0; border-bottom: 1px solid var(--line); text-align: left; padding: 18px 0; font-family: var(--serif); font-size: 32px; line-height: 1; color: var(--muted); cursor: pointer; display: flex; justify-content: space-between; align-items: baseline; min-height: 44px; }
+    .tab span { font-family: var(--sans); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+    .tab[aria-selected="true"] { color: var(--ink); font-style: italic; }
+    .tab:hover { color: var(--ink); }
+    .panel { border: 1px solid var(--line); padding: clamp(24px, 4vw, 48px); background: var(--paper); }
+    .panel h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.05; }
+    .panel > p { color: var(--muted); margin-top: 14px; max-width: 52ch; }
+    .blooms { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; margin-top: 28px; border-top: 1px solid var(--line); }
+    .blooms li { display: flex; justify-content: space-between; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .blooms li span { color: var(--muted); font-size: 13px; }
+    .swatches { display: flex; gap: 8px; margin-top: 28px; align-items: center; }
+    .swatches i { width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(0,0,0,.08); }
+    @media (max-width: 820px) { .season { grid-template-columns: 1fr; } .tabs { flex-direction: row; overflow-x: auto; border-top: 0; } .tab { border: 0; border-bottom: 1px solid var(--line); padding: 12px 16px; font-size: 24px; white-space: nowrap; } .tab span { display: none; } .tab[aria-selected="true"] { border-bottom-color: var(--ink); } .blooms { grid-template-columns: 1fr; } }
+
+    /* Quote */
+    .quote { text-align: center; }
+    .quote blockquote { margin: 0 auto; max-width: 22ch; font-family: var(--serif); font-style: italic; font-size: clamp(34px, 4.6vw, 60px); line-height: 1.08; }
+    .quote p { margin-top: 24px; }
+
+    /* Subscription */
+    .plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); }
+    .plan { padding: 32px; display: flex; flex-direction: column; gap: 10px; }
+    .plan + .plan { border-left: 1px solid var(--line); }
+    .plan h3 { font-family: var(--serif); font-weight: 500; font-size: 28px; }
+    .plan .price { font-family: var(--serif); font-size: 44px; line-height: 1; margin-top: 8px; }
+    .plan .price small { font-family: var(--sans); font-size: 13px; color: var(--muted); }
+    .plan p { color: var(--muted); font-size: 15px; }
+    .plan .btn { margin-top: 14px; align-self: flex-start; }
+    .plan--sage { background: var(--sage); color: #f3efe8; }
+    .plan--sage p, .plan--sage .price small, .plan--sage .label { color: #dfe3d6; }
+    .plan--sage .btn { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+    .plan--sage .btn:hover { background: transparent; color: var(--paper); }
+    @media (max-width: 860px) { .plans { grid-template-columns: 1fr; } .plan + .plan { border-left: 0; border-top: 1px solid var(--line); } }
+
+    /* CTA + footer */
+    .cta { background: var(--ink); color: var(--paper); text-align: center; padding-block: clamp(72px, 11vw, 140px); }
+    .cta h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 6.4vw, 92px); line-height: .95; letter-spacing: -.015em; }
+    .cta p { color: #c9c3b8; margin: 20px auto 32px; max-width: 42ch; }
+    .cta .btn { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+    .cta .btn:hover { background: transparent; color: var(--paper); }
+    footer { background: var(--ink); color: #a9a397; border-top: 1px solid #45433d; font-size: 13px; padding-block: 26px 90px; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+    .concept { position: fixed; left: 16px; bottom: 16px; z-index: 20; padding: 9px 14px; background: var(--paper); color: var(--ink); border: 1px solid var(--ink); font-size: 12px; letter-spacing: .02em; }
+    .concept a { text-underline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap bar">
+      <nav aria-label="Main"><a href="#offerings">Studio</a><a href="#season">In season</a><a href="#subscriptions">Subscriptions</a></nav>
+      <a class="mark" href="#top" aria-label="Juniper Hollow Florals, home">Juniper Hollow<small>Floral studio</small></a>
+      <a class="link" href="#inquire">Inquire</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero" aria-labelledby="hero-title">
+      <div>
+        <p class="label">Floral design · Richland, WA</p>
+        <h1 id="hero-title">Flowers that<br />feel like the <em>season</em></h1>
+        <p class="sub">Garden-style arrangements for weddings, homes and tables, grown and gathered as close to home as we can manage.</p>
+        <div class="hero__ctas">
+          <a class="btn" href="#inquire">Plan your wedding</a>
+          <a class="link" href="#subscriptions">Weekly flowers</a>
+        </div>
+      </div>
+      <figure>
+        <img src="https://pynvisuals.com/assets/images/portfolio/creative-golden-hour-silhouette.jpg" alt="Late sun glowing through sheer curtains beside a figure in silhouette." width="1080" height="1616" fetchpriority="high" />
+        <figcaption class="label"><span>The studio, late light</span><span>No. 01</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="section tone" id="offerings" aria-labelledby="off-title">
+      <div class="wrap">
+        <div class="head">
+          <div><p class="label">The studio</p><h2 id="off-title">Three ways<br />we work</h2></div>
+          <p>Every arrangement starts with what's blooming that week, then shapes itself around your space and the people in it.</p>
+        </div>
+        <div class="offer">
+          <article><p class="label">01 · Weddings</p><h3>Ceremony &amp; celebration</h3><p>Bouquets, arches and long-table runners, designed in a walk-through of your venue.</p><a class="link" href="#inquire">Check your date</a></article>
+          <article><p class="label">02 · Homes</p><h3>Weekly subscriptions</h3><p>A fresh, wrapped arrangement on your doorstep every week, every other week, or monthly.</p><a class="link" href="#subscriptions">See plans</a></article>
+          <article><p class="label">03 · Workshops</p><h3>Arranging evenings</h3><p>Small-group classes at the studio. You leave with your own arrangement and a clipping guide.</p><a class="link" href="#inquire">Join the list</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="season" aria-labelledby="season-title">
+      <div class="wrap">
+        <div class="head">
+          <div><p class="label">In season</p><h2 id="season-title">What's blooming</h2></div>
+          <p>Choose a season to see what we reach for first. Exact stems depend on the weather and the growers.</p>
+        </div>
+        <div class="season">
+          <div class="tabs" role="tablist" aria-label="Seasons" data-tabs></div>
+          <div class="panel" role="tabpanel" tabindex="0" data-panel></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tone quote" aria-label="From the studio">
+      <div class="wrap">
+        <blockquote>“Nothing shipped across an ocean when the field down the road will do.”</blockquote>
+        <p class="label">The studio's one rule</p>
+      </div>
+    </section>
+
+    <section class="section" id="subscriptions" aria-labelledby="sub-title">
+      <div class="wrap">
+        <div class="head">
+          <div><p class="label">Subscriptions</p><h2 id="sub-title">Flowers on<br />repeat</h2></div>
+          <p>Delivered Thursdays across the Tri-Cities. Pause or skip any week from your account.</p>
+        </div>
+        <div class="plans">
+          <article class="plan"><p class="label">Monthly</p><h3>The Gathering</h3><p class="price">$58 <small>/ delivery</small></p><p>One generous arrangement on the first Thursday of the month.</p><a class="btn" href="#inquire">Choose</a></article>
+          <article class="plan plan--sage"><p class="label">Most loved · Every other week</p><h3>The Table</h3><p class="price">$52 <small>/ delivery</small></p><p>Two arrangements a month, sized for a dining or kitchen table.</p><a class="btn" href="#inquire">Choose</a></article>
+          <article class="plan"><p class="label">Weekly</p><h3>The Studio</h3><p class="price">$46 <small>/ delivery</small></p><p>A smaller weekly bunch that keeps something fresh in the house.</p><a class="btn" href="#inquire">Choose</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="inquire" aria-labelledby="cta-title">
+      <div class="wrap">
+        <p class="label" style="color:#a9a397">Inquiries</p>
+        <h2 id="cta-title" style="margin-top:16px">Tell us about<br />your day</h2>
+        <p>Weddings book four to ten months ahead. Share your date and venue and we'll come back with ideas.</p>
+        <a class="btn" href="#top">Start an inquiry</a>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span>© Juniper Hollow Florals (fictional)</span><span>Floral studio · Richland, Washington</span></div></footer>
+  <p class="concept">Concept site by HQ Agency · fictional business · <a href="../../work.html" target="_top">Back</a></p>
+
+  <script>
+    (function () {
+      const SEASONS = [
+        { id: "spring", name: "Spring", months: "Mar–May", title: "Soft, fragrant, first-light", text: "Tulips, ranunculus and the first lilac, kept loose and airy.", blooms: [["Ranunculus", "Mar–Apr"], ["Tulips", "Mar–Apr"], ["Lilac", "Apr–May"], ["Sweet pea", "May"], ["Fritillaria", "Apr"], ["Flowering branches", "Mar"]], colors: ["#f2d4d0", "#f6e7b8", "#cdb7dc", "#e9eee0"] },
+        { id: "summer", name: "Summer", months: "Jun–Aug", title: "Full, bright, a little wild", text: "Garden roses, dahlias and cosmos, with grasses that move in the breeze.", blooms: [["Garden roses", "Jun–Jul"], ["Dahlias", "Jul–Aug"], ["Cosmos", "Jul–Aug"], ["Zinnias", "Aug"], ["Lisianthus", "Jun–Aug"], ["Wheat grass", "Jul"]], colors: ["#e9967a", "#f4c45a", "#f6f0e4", "#c45a6a"] },
+        { id: "autumn", name: "Autumn", months: "Sep–Nov", title: "Rust, wheat and ember", text: "Dried grasses, chrysanthemums and the last dahlias in deep, warm tones.", blooms: [["Chrysanthemums", "Sep–Nov"], ["Late dahlias", "Sep–Oct"], ["Amaranth", "Sep"], ["Dried wheat", "Oct–Nov"], ["Rose hips", "Oct"], ["Oak leaves", "Oct–Nov"]], colors: ["#a35f48", "#d9a15b", "#6d4b3a", "#e6d2b0"] },
+        { id: "winter", name: "Winter", months: "Dec–Feb", title: "Quiet greens and pale whites", text: "Evergreens, hellebores and white blooms, styled sparse and sculptural.", blooms: [["Hellebores", "Jan–Feb"], ["Amaryllis", "Dec"], ["Paperwhites", "Dec–Jan"], ["Cedar &amp; juniper", "Dec–Feb"], ["Anemones", "Feb"], ["Dried seed pods", "Dec–Feb"]], colors: ["#f7f5ef", "#9aa88d", "#3e4b3a", "#d9d3e2"] },
+      ];
+      const tabsEl = document.querySelector("[data-tabs]");
+      const panel = document.querySelector("[data-panel]");
+      tabsEl.innerHTML = SEASONS.map((s, i) => `<button class="tab" role="tab" id="tab-${s.id}" aria-controls="season-panel" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}">${s.name}<span>${s.months}</span></button>`).join("");
+      panel.id = "season-panel";
+      const tabs = [...tabsEl.querySelectorAll(".tab")];
+      function show(i, focus) {
+        const s = SEASONS[i];
+        tabs.forEach((t, j) => { t.setAttribute("aria-selected", String(i === j)); t.tabIndex = i === j ? 0 : -1; });
+        panel.setAttribute("aria-labelledby", `tab-${s.id}`);
+        panel.innerHTML = `<p class="label">${s.name} · ${s.months}</p><h3 style="margin-top:12px">${s.title}</h3><p>${s.text}</p>
+          <ul class="blooms">${s.blooms.map(([n, m]) => `<li>${n}<span>${m}</span></li>`).join("")}</ul>
+          <div class="swatches" aria-label="Palette"><span class="label" style="margin-right:6px">Palette</span>${s.colors.map((c) => `<i style="background:${c}"></i>`).join("")}</div>`;
+        if (focus) tabs[i].focus();
+      }
+      tabs.forEach((t, i) => t.addEventListener("click", () => show(i)));
+      tabsEl.addEventListener("keydown", (e) => {
+        const cur = tabs.findIndex((t) => t.getAttribute("aria-selected") === "true");
+        const map = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+        if (e.key in map) { e.preventDefault(); show((cur + map[e.key] + tabs.length) % tabs.length, true); }
+        if (e.key === "Home") { e.preventDefault(); show(0, true); }
+        if (e.key === "End") { e.preventDefault(); show(tabs.length - 1, true); }
+      });
+      const m = new Date().getMonth();
+      show(m >= 2 && m <= 4 ? 0 : m >= 5 && m <= 7 ? 1 : m >= 8 && m <= 10 ? 2 : 3);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hangar Nine Workspace | Concept site by HQ Agency</title>
+  <meta name="description" content="Concept website for a fictional coworking space, designed by HQ Agency." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <style>
+    :root {
+      --bg: #08090a; --bg-2: #0f1012; --bg-3: #16171a; --text: #e8e9ec; --muted: #9c9da1; --dim: #6b6c71;
+      --line: rgba(255,255,255,.08); --line-2: rgba(255,255,255,.14);
+      --a1: #8b7cff; --a2: #45c2ff; --ok: #4cd6a0; --radius: 10px; --max: 1160px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: "Inter", system-ui, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, p, ul { margin: 0; padding: 0; }
+    .wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+    :focus-visible { outline: 2px solid var(--a2); outline-offset: 3px; border-radius: 4px; }
+    .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; }
+    .grad { background: linear-gradient(92deg, #fff 10%, #c9c3ff 45%, var(--a2) 95%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 18px; border-radius: 8px; font-weight: 500; font-size: 15px; border: 1px solid var(--line-2); transition: background-color .2s, border-color .2s; }
+    .btn--primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .btn--primary:hover { background: #fff; }
+    .btn--ghost:hover { border-color: rgba(255,255,255,.3); background: var(--bg-3); }
+
+    /* Nav */
+    .nav { position: sticky; top: 0; z-index: 10; background: rgba(8,9,10,.7); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .nav__bar { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 20px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -.01em; }
+    .logo i { width: 22px; height: 22px; border-radius: 6px; background: linear-gradient(135deg, var(--a1), var(--a2)); box-shadow: 0 0 18px rgba(139,124,255,.5); }
+    .nav__links { display: flex; gap: 26px; font-size: 14px; color: var(--muted); }
+    .nav__links a:hover { color: var(--text); }
+    .nav__right { display: flex; gap: 10px; }
+    @media (max-width: 760px) { .nav__links, .nav__right .btn--ghost { display: none; } }
+
+    /* Hero */
+    .hero { position: relative; padding-top: clamp(64px, 10vw, 128px); overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: -20% -10% auto; height: 640px; background: radial-gradient(40% 50% at 50% 30%, rgba(139,124,255,.28), transparent 70%), radial-gradient(30% 40% at 70% 20%, rgba(69,194,255,.18), transparent 70%); pointer-events: none; }
+    .hero .wrap { position: relative; }
+    .badge { display: inline-flex; align-items: center; gap: 10px; padding: 5px 12px 5px 6px; border: 1px solid var(--line-2); border-radius: 999px; font-size: 13px; color: var(--muted); background: rgba(255,255,255,.03); }
+    .badge b { padding: 2px 8px; border-radius: 999px; background: rgba(76,214,160,.14); color: var(--ok); font-weight: 500; font-size: 12px; }
+    .hero h1 { margin-top: 26px; font-size: clamp(44px, 7.4vw, 92px); font-weight: 600; letter-spacing: -.045em; line-height: 1; max-width: 13ch; }
+    .hero p.sub { margin-top: 22px; max-width: 46ch; color: var(--muted); font-size: clamp(17px, 1.8vw, 20px); }
+    .hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+
+    /* Desk map (interactive) */
+    .app { margin-top: clamp(48px, 7vw, 80px); border: 1px solid var(--line-2); border-radius: 14px; background: linear-gradient(180deg, var(--bg-2), var(--bg)); box-shadow: 0 40px 120px -40px rgba(139,124,255,.35); overflow: hidden; }
+    .app__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); color: var(--muted); }
+    .app__top .dots { display: flex; gap: 6px; } .app__top .dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--bg-3); border: 1px solid var(--line-2); }
+    .app__body { display: grid; grid-template-columns: 220px 1fr; min-height: 340px; }
+    .app__side { border-right: 1px solid var(--line); padding: 16px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: var(--muted); }
+    .app__side span { padding: 6px 10px; border-radius: 6px; }
+    .app__side span.on { background: var(--bg-3); color: var(--text); }
+    .app__main { padding: 20px; }
+    .floor { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 8px; margin-top: 14px; }
+    .desk { aspect-ratio: 1.4; min-height: 36px; border-radius: 6px; border: 1px solid var(--line-2); background: var(--bg-3); color: var(--muted); font: 500 11px "JetBrains Mono", monospace; cursor: pointer; transition: border-color .15s, background-color .15s; }
+    .desk:hover:not([disabled]) { border-color: var(--a2); color: var(--text); }
+    .desk[disabled] { opacity: .35; cursor: not-allowed; background: repeating-linear-gradient(135deg, transparent 0 4px, rgba(255,255,255,.05) 4px 8px); }
+    .desk[aria-pressed="true"] { background: linear-gradient(135deg, var(--a1), var(--a2)); color: #fff; border-color: transparent; }
+    .gap { grid-column: span 8; height: 10px; border-top: 1px dashed var(--line-2); margin-top: 4px; }
+    .app__status { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); }
+    .app__status strong { color: var(--text); font-weight: 500; }
+    .legend { display: flex; gap: 14px; } .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+    @media (max-width: 760px) { .app__body { grid-template-columns: 1fr; } .app__side { display: none; } .floor { grid-template-columns: repeat(4, minmax(0, 1fr)); } .gap { grid-column: span 4; } }
+
+    /* Features */
+    .section { padding-block: clamp(80px, 11vw, 140px); }
+    .kicker { color: var(--a2); }
+    .section h2 { margin-top: 14px; font-size: clamp(34px, 4.6vw, 56px); font-weight: 600; letter-spacing: -.04em; line-height: 1.05; max-width: 18ch; }
+    .section .lead { margin-top: 16px; max-width: 52ch; color: var(--muted); font-size: 18px; }
+    .features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 48px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .feature { padding: 28px; display: flex; flex-direction: column; gap: 10px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .feature:nth-child(3n) { border-right: 0; } .feature:nth-last-child(-n+3) { border-bottom: 0; }
+    .feature h3 { font-size: 17px; font-weight: 600; letter-spacing: -.01em; }
+    .feature p { color: var(--muted); font-size: 15px; }
+    .feature svg { width: 22px; height: 22px; stroke: var(--a1); }
+    @media (max-width: 860px) { .features { grid-template-columns: 1fr; } .feature { border-right: 0 !important; border-bottom: 1px solid var(--line) !important; } .feature:last-child { border-bottom: 0 !important; } }
+
+    /* Pricing */
+    .pricing-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px; }
+    .switch { display: inline-flex; align-items: center; gap: 12px; color: var(--muted); font-size: 14px; }
+    .switch button { position: relative; width: 46px; height: 26px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--bg-3); cursor: pointer; padding: 0; }
+    .switch button::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--text); transition: transform .2s; }
+    .switch button[aria-checked="true"] { background: linear-gradient(135deg, var(--a1), var(--a2)); border-color: transparent; }
+    .switch button[aria-checked="true"]::after { transform: translateX(20px); }
+    .switch em { font-style: normal; color: var(--ok); }
+    .tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
+    .tier { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; gap: 12px; background: var(--bg-2); }
+    .tier--pro { border-color: transparent; background: linear-gradient(var(--bg-2), var(--bg-2)) padding-box, linear-gradient(135deg, var(--a1), var(--a2)) border-box; border: 1px solid transparent; }
+    .tier h3 { font-size: 16px; font-weight: 600; }
+    .tier .price { font-size: 44px; font-weight: 600; letter-spacing: -.04em; line-height: 1; }
+    .tier .price small { font-size: 15px; font-weight: 400; color: var(--muted); letter-spacing: 0; }
+    .tier .note { color: var(--dim); min-height: 1.4em; }
+    .tier ul { list-style: none; display: grid; gap: 8px; color: var(--muted); font-size: 15px; margin-bottom: 8px; }
+    .tier li::before { content: "→"; color: var(--a2); margin-right: 10px; }
+    .tier .btn { margin-top: auto; justify-content: center; }
+    @media (max-width: 860px) { .tiers { grid-template-columns: 1fr; } }
+
+    /* CTA + footer */
+    .cta { text-align: center; border-top: 1px solid var(--line); background: radial-gradient(50% 70% at 50% 0%, rgba(139,124,255,.18), transparent 70%); }
+    .cta h2 { margin-inline: auto; }
+    .cta .lead { margin-inline: auto; }
+    .cta .hero__ctas { justify-content: center; }
+    footer { border-top: 1px solid var(--line); padding-block: 26px 90px; color: var(--dim); font-size: 13px; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+    .concept { position: fixed; left: 16px; bottom: 16px; z-index: 20; padding: 8px 14px; border-radius: 8px; background: rgba(22,23,26,.92); border: 1px solid var(--line-2); color: var(--muted); font-size: 12px; backdrop-filter: blur(8px); }
+    .concept a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav__bar">
+      <a class="logo" href="#top" aria-label="Hangar Nine Workspace, home"><i aria-hidden="true"></i>Hangar Nine</a>
+      <nav class="nav__links" aria-label="Main"><a href="#space">Space</a><a href="#pricing">Pricing</a><a href="#tour">Tour</a></nav>
+      <div class="nav__right"><a class="btn btn--ghost" href="#tour">Book a tour</a><a class="btn btn--primary" href="#pricing">Get a desk</a></div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <span class="badge"><b data-open>Open</b><span class="mono" data-hours>Members 24/7 · Front desk 8–6</span></span>
+        <h1 id="hero-title" class="grad">The workspace built for deep work.</h1>
+        <p class="sub">A converted airplane hangar in Pasco with quiet desks, fast fiber and phone booths that actually block sound. Book a desk in seconds.</p>
+        <div class="hero__ctas"><a class="btn btn--primary" href="#pricing">Get a desk →</a><a class="btn btn--ghost" href="#tour">Book a free day pass</a></div>
+
+        <div class="app" aria-labelledby="map-title">
+          <div class="app__top"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="mono">hangar-nine / floor-1</span><span class="mono" data-date></span></div>
+          <div class="app__body">
+            <div class="app__side" aria-hidden="true"><span class="on">Floor map</span><span>Phone booths</span><span>Meeting rooms</span><span>Events</span><span>Members</span></div>
+            <div class="app__main">
+              <h2 id="map-title" class="mono" style="color:var(--muted);font-weight:400">Pick an open desk (sample floor)</h2>
+              <div class="floor" data-floor role="group" aria-label="Desks"></div>
+              <div class="app__status">
+                <span class="mono" aria-live="polite" data-pick>No desk selected</span>
+                <span class="legend mono"><span><i style="background:linear-gradient(135deg,var(--a1),var(--a2))"></i>Yours</span><span><i style="background:var(--bg-3);border:1px solid var(--line-2)"></i>Open</span><span><i style="background:var(--bg-3);opacity:.35"></i>Taken</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="space" aria-labelledby="space-title">
+      <div class="wrap">
+        <p class="mono kicker">01 / The space</p>
+        <h2 id="space-title">Everything you need. Nothing that interrupts.</h2>
+        <p class="lead">Designed with the people who use it every day, from the desk height to the coffee grinder.</p>
+        <div class="features">
+          <div class="feature"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1"/></svg><h3>Gigabit fiber</h3><p>Symmetric 1 Gbps with a backup line. Wired drops at every desk.</p></div>
+          <div class="feature"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M10 17h4"/></svg><h3>Six phone booths</h3><p>Sound-rated booths with lighting tuned for video calls.</p></div>
+          <div class="feature"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg><h3>Meeting rooms</h3><p>Two rooms with 4K screens. Members get hours included each month.</p></div>
+          <div class="feature"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><path d="M12 3v3M5 21h14M7 21v-6a5 5 0 0 1 10 0v6"/></svg><h3>Quiet zone</h3><p>A library-rules room for focus. No calls, no meetings.</p></div>
+          <div class="feature"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM17 10h2a2 2 0 0 1 0 4h-2M8 3v2M12 3v2"/></svg><h3>Local coffee</h3><p>Roasted twenty minutes away. Oat milk always stocked.</p></div>
+          <div class="feature"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><h3>Keycard access</h3><p>Members come and go 24/7. Lockers available on every plan.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing" aria-labelledby="price-title" style="padding-top:0">
+      <div class="wrap">
+        <div class="pricing-head">
+          <div><p class="mono kicker">02 / Pricing</p><h2 id="price-title">Simple plans.</h2></div>
+          <div class="switch"><span id="bill-label">Bill yearly</span><button type="button" role="switch" aria-checked="false" aria-labelledby="bill-label" data-billing></button><em>2 months free</em></div>
+        </div>
+        <div class="tiers">
+          <article class="tier"><h3>Day pass</h3><p class="price"><span data-price="15" data-yearly="15">$15</span> <small>/ day</small></p><p class="note mono">Pay as you go</p><ul><li>Any open desk</li><li>Coffee and Wi-Fi</li><li>Front desk hours</li></ul><a class="btn btn--ghost" href="#tour">Buy a pass</a></article>
+          <article class="tier tier--pro"><h3>Flex member</h3><p class="price"><span data-price="149" data-yearly="124">$149</span> <small>/ month</small></p><p class="note mono" data-note>Billed monthly</p><ul><li>Any open desk, 24/7</li><li>4 meeting-room hours</li><li>Locker and mail</li></ul><a class="btn btn--primary" href="#tour">Start Flex</a></article>
+          <article class="tier"><h3>Dedicated desk</h3><p class="price"><span data-price="289" data-yearly="241">$289</span> <small>/ month</small></p><p class="note mono" data-note>Billed monthly</p><ul><li>Your own desk and chair</li><li>10 meeting-room hours</li><li>Monitor included</li></ul><a class="btn btn--ghost" href="#tour">Reserve a desk</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta" id="tour" aria-labelledby="cta-title">
+      <div class="wrap">
+        <p class="mono kicker">03 / Try it</p>
+        <h2 id="cta-title" class="grad">Your first day is on us.</h2>
+        <p class="lead">Come work a full day, free. If it fits, your desk is ready tomorrow.</p>
+        <div class="hero__ctas"><a class="btn btn--primary" href="#top">Claim a free day</a><a class="btn btn--ghost" href="#space">Take the tour</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span>© Hangar Nine Workspace (fictional)</span><span class="mono">Pasco, WA · 46.26° N</span></div></footer>
+  <p class="concept">Concept site by HQ Agency · fictional business · <a href="../../work.html" target="_top">Back</a></p>
+
+  <script>
+    (function () {
+      /* Open/closed badge based on the visitor's clock (front desk 8–6, weekdays) */
+      const now = new Date(), h = now.getHours(), d = now.getDay();
+      const open = d >= 1 && d <= 5 && h >= 8 && h < 18;
+      const b = document.querySelector("[data-open]");
+      b.textContent = open ? "Front desk open" : "Members only now";
+      document.querySelector("[data-hours]").textContent = "Members 24/7 · Desk 8–6 weekdays";
+      document.querySelector("[data-date]").textContent = now.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+
+      /* Desk map */
+      const floor = document.querySelector("[data-floor]");
+      const pick = document.querySelector("[data-pick]");
+      const taken = new Set([2, 5, 6, 9, 13, 14, 18, 21, 22, 27, 30]);
+      let html = "";
+      for (let i = 1; i <= 32; i++) {
+        const row = String.fromCharCode(64 + Math.ceil(i / 8));
+        const label = `${row}${((i - 1) % 8) + 1}`;
+        const t = taken.has(i);
+        html += `<button class="desk" type="button" aria-pressed="false" ${t ? "disabled" : ""} aria-label="Desk ${label}${t ? ", taken" : ", open"}">${label}</button>`;
+        if (i === 16) html += `<span class="gap" aria-hidden="true"></span>`;
+      }
+      floor.innerHTML = html;
+      floor.addEventListener("click", (e) => {
+        const btn = e.target.closest(".desk");
+        if (!btn || btn.disabled) return;
+        const on = btn.getAttribute("aria-pressed") !== "true";
+        floor.querySelectorAll(".desk").forEach((x) => x.setAttribute("aria-pressed", "false"));
+        btn.setAttribute("aria-pressed", String(on));
+        pick.innerHTML = on ? `Desk <strong>${btn.textContent}</strong> held for today · sample only` : "No desk selected";
+      });
+
+      /* Billing switch */
+      const sw = document.querySelector("[data-billing]");
+      sw.addEventListener("click", () => {
+        const yearly = sw.getAttribute("aria-checked") !== "true";
+        sw.setAttribute("aria-checked", String(yearly));
+        document.querySelectorAll("[data-price]").forEach((p) => { p.textContent = "$" + (yearly ? p.dataset.yearly : p.dataset.price); });
+        document.querySelectorAll("[data-note]").forEach((n) => { n.textContent = yearly ? "Billed yearly" : "Billed monthly"; });
+      });
+    })();
+  </script>
+</body>
+</html>
