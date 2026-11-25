@@ -4,148 +4,100 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HQ Agency | Contact: start a project</title>
-  <meta name="description" content="Tell HQ Agency about your business and the website you need. We reply by email." />
-  <meta name="theme-color" content="#f5f6f8" />
-  <meta property="og:title" content="HQ Agency | Contact: start a project" />
-  <meta property="og:description" content="Tell HQ Agency about your business and the website you need. We reply by email." />
-  <meta property="og:type" content="website" />
+  <meta name="description" content="Tell HQ Agency about your business and the website you need. We reply by email with questions and a quote." />
+  <meta name="theme-color" content="#f1f2f4" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:site_name" content="HQ Agency" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="HQ Agency | Contact: start a project" />
+  <meta property="og:description" content="Tell HQ Agency about your business and the website you need. We reply by email with questions and a quote." />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" />
   <link rel="stylesheet" href="css/styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="js/config.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a class="brand" href="index.html" aria-label="HQ Agency home"><span class="brand__mark" aria-hidden="true">HQ</span>HQ Agency</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span></button>
-      <nav class="nav" id="site-nav" aria-label="Main">
-        <a href="services.html">Services</a>
-        <a href="work.html">Example sites</a>
-        <a href="contact.html" aria-current="page">Contact</a>
-        <a class="btn btn--sm" href="contact.html">Start a project</a>
-      </nav>
-    </div>
-  </header>
+  <site-header current="contact"></site-header>
 
   <main id="main">
-    <header class="page-intro">
-      <div class="container">
-        <p class="hero__label">Contact</p>
-        <h1 class="display h1">Start a <em>project.</em></h1>
+    <header class="container page-intro">
+      <p class="eyebrow">Contact</p>
+      <div class="page-intro__row">
+        <h1 class="display">Start a project</h1>
         <p class="lede">Tell us about your business and what you need. We'll reply by email, usually with a few questions and a quote.</p>
       </div>
     </header>
 
-    <section class="section" aria-label="Contact form">
-      <div class="container contact-grid">
-        <form class="form" data-contact-form novalidate action="#" method="post">
-          <div class="setup-notice" data-setup-notice hidden><strong>Owner note (only shown on your computer):</strong> this form isn't connected yet. Add a Formspree endpoint in <code>js/config.js</code> so messages reach you.</div>
-          <div class="error-summary" data-error-summary tabindex="-1" hidden></div>
-
+    <!-- CONTACT GRID (pattern 14). Set SITE.form.endpoint in js/config.js to deliver messages. -->
+    <section class="container contact-grid" aria-label="Project form and what happens next" style="padding-bottom:var(--section)">
+      <div>
+        <form class="form" data-contact-form novalidate>
+          <p class="notice notice--setup" data-setup-notice tabindex="-1" hidden>
+            <strong>Owner note (only shown on your computer)</strong>
+            This form isn't connected yet, so messages are not sent. Add a Formspree endpoint in <code>js/config.js</code> &rarr; <code>form.endpoint</code>.
+          </p>
           <div class="field">
-            <label for="name">Your name <span>(required)</span></label>
-            <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-error" />
-            <p class="error" id="name-error"></p>
+            <label for="name">Name <span class="req">(required)</span></label>
+            <input class="input" id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-error" />
+            <p class="field__error" id="name-error"></p>
           </div>
           <div class="field">
-            <label for="email">Email <span>(required)</span></label>
-            <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" />
-            <p class="error" id="email-error"></p>
+            <label for="email">Email <span class="req">(required)</span></label>
+            <input class="input" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" />
+            <p class="field__error" id="email-error"></p>
           </div>
           <div class="field">
-            <label for="business">Business name <span>(optional)</span></label>
-            <input id="business" name="business" type="text" autocomplete="organization" />
+            <label for="business">Business name <span class="req">(optional)</span></label>
+            <input class="input" id="business" name="business" type="text" autocomplete="organization" />
           </div>
           <div class="field">
-            <label for="website">Current website <span>(optional)</span></label>
-            <input id="website" name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.com" aria-describedby="website-hint website-error" />
-            <p class="hint" id="website-hint">If you want a refresh, this helps us look before we reply.</p>
-            <p class="error" id="website-error"></p>
+            <label for="website">Current website <span class="req">(optional)</span></label>
+            <input class="input" id="website" name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.com" aria-describedby="website-hint" />
+            <p class="hint" id="website-hint">For a refresh, this lets us look before we reply.</p>
           </div>
-
-          <fieldset class="field field--full choices" aria-describedby="projectType-error">
-            <legend>What do you need? <span>(required)</span></legend>
-            <div class="choice-row">
-              <div class="choice"><input type="radio" id="type-new" name="projectType" value="new" /><label for="type-new">A new website</label></div>
-              <div class="choice"><input type="radio" id="type-refresh" name="projectType" value="refresh" /><label for="type-refresh">A website refresh</label></div>
-              <div class="choice"><input type="radio" id="type-unsure" name="projectType" value="unsure" /><label for="type-unsure">Not sure yet</label></div>
-            </div>
-            <p class="error" id="projectType-error"></p>
-          </fieldset>
-
           <div class="field field--full">
-            <label for="message">About the project <span>(required)</span></label>
-            <textarea id="message" name="message" required aria-describedby="message-hint message-error"></textarea>
-            <p class="hint" id="message-hint">What does your business do, and what should the website help people do: call, book, visit or buy? Any timing we should know about?</p>
-            <p class="error" id="message-error"></p>
+            <label for="service">What do you need? <span class="req">(required)</span></label>
+            <select class="input" id="service" name="service" required aria-describedby="service-error">
+              <option value="">Choose one</option>
+            </select>
+            <p class="field__error" id="service-error"></p>
           </div>
-
-          <div class="hp" aria-hidden="true">
-            <label for="company_url">Leave this field empty</label>
-            <input id="company_url" name="company_url" type="text" tabindex="-1" autocomplete="off" />
+          <div class="field field--full">
+            <label for="details">About the project <span class="req">(required)</span></label>
+            <textarea class="input" id="details" name="details" required aria-describedby="details-hint details-error"></textarea>
+            <p class="hint" id="details-hint">What does your business do, and what should the website help people do: call, book, visit or buy? Any timing we should know about?</p>
+            <p class="field__error" id="details-error"></p>
           </div>
-
-          <div class="form__submit">
-            <button class="btn" type="submit">Send message</button>
+          <div class="hp-field" aria-hidden="true">
+            <label for="gotcha">Leave this field empty</label>
+            <input id="gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          <p class="notice notice--error field--full" data-send-error tabindex="-1" role="alert" hidden></p>
+          <div class="form__foot">
+            <button class="btn btn--dark" type="submit">Send message</button>
             <p class="form__note">Sending a message doesn't commit you to anything. It just starts the conversation.</p>
           </div>
-          <div class="form-result" data-form-result tabindex="-1" role="status" hidden></div>
         </form>
-
-        <aside class="dark contact-card" aria-labelledby="next-title">
-          <h2 id="next-title">What happens next</h2>
-          <ol class="next-steps">
-            <li><div><strong>We read your message</strong>and look at your current site if you have one.</div></li>
-            <li><div><strong>We reply by email</strong>with any questions and a quote for the work.</div></li>
-            <li><div><strong>You decide</strong>whether to go ahead. No pressure either way.</div></li>
-          </ol>
-          <div class="contact-card__direct" data-hq-wrap>
-            <p>Prefer email? <span data-hq="email"></span></p>
-          </div>
-        </aside>
+        <div class="form-result" data-form-result tabindex="-1" aria-live="polite" hidden></div>
       </div>
-    </section>
 
+      <aside class="dark contact-card" aria-labelledby="next-title">
+        <p class="eyebrow" id="next-title">What happens next</p>
+        <dl>
+          <div><dt>1. We read it</dt><dd>And look at your current site, if you have one.</dd></div>
+          <div><dt>2. We reply by email</dt><dd>With any questions and a quote.</dd></div>
+          <div><dt>3. You decide</dt><dd>Whether to go ahead. No pressure either way.</dd></div>
+          <div data-link-wrap><dt>Prefer email?</dt><dd><a data-link="email" href="#">Email</a></dd></div>
+        </dl>
+      </aside>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer__top">
-        <div>
-          <a class="brand" href="index.html"><span class="brand__mark" aria-hidden="true">HQ</span>HQ Agency</a>
-          <p class="footer__blurb">New websites for businesses, and refreshes for the ones that need it.</p>
-        </div>
-        <div class="footer__col">
-          <h2>Site</h2>
-          <ul>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="work.html">Example sites</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h2>Get in touch</h2>
-          <ul>
-            <li><a href="contact.html">Start a project</a></li>
-            <li data-hq-wrap><span data-hq="email"></span></li>
-            <li data-hq-wrap><span data-hq="phone"></span></li>
-            <li data-hq-wrap><span data-hq="instagram"></span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <p>&copy; <span data-year>2026</span> HQ Agency</p>
-        <p data-hq-wrap><span data-hq="location"></span></p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/config.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/contact-form.js"></script>
+  <site-footer></site-footer>
 </body>
 </html>
