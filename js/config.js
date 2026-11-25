@@ -43,6 +43,10 @@ window.SITE = {
   //   ""                               = not connected (the form says nothing was sent)
   form: { endpoint: "https://formspree.io/f/mgakrgeb" },
 
+  // AI help bot (js/help-bot.js). Paste the Cloudflare Worker's address + "/chat",
+  // e.g. "https://hq-help-bot.yourname.workers.dev/chat". "" = bot hidden.
+  helpBot: { endpoint: "" },
+
   services: [
     {
       id: "new-website",
