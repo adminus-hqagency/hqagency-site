@@ -13,13 +13,13 @@
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const STORE = "hq-help-bot";
   const GREETING = "Hi! I'm HQ Agency's AI assistant. Ask me about new websites, refreshes, or how a project works.";
-  const SUGGESTIONS = ["What's included in a new website?", "How does a website refresh work?", "How much does a website cost?"];
+  const SUGGESTIONS = ["Which package is right for me?", "How does a website refresh work?", "What does the AI help bot do?"];
 
   /* Safe rendering: escape everything, then turn page names into links and keep line breaks */
   const render = (text) =>
     esc(text)
       // [Label](page.html) -> link, but only to this site's own pages
-      .replace(/\[([^\]]{1,60})\]\(((?:contact|work|services|index)\.html)\)/g, (_, label, href) => `<a href="${href}">${label}</a>`)
+      .replace(/\[([^\]]{1,60})\]\(((?:contact|work|services|pricing|index)\.html)\)/g, (_, label, href) => `<a href="${href}">${label}</a>`)
       // any other markdown link: keep the label, drop the address
       .replace(/\[([^\]]{1,80})\]\([^)]*\)/g, "$1")
       .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")

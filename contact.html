@@ -77,6 +77,13 @@
             <p class="field__error" id="service-error"></p>
           </div>
           <div class="field field--full">
+            <label for="plan">Package <span class="req">(optional)</span></label>
+            <select class="input" id="plan" name="plan" aria-describedby="plan-hint">
+              <option value="">Choose a package</option>
+            </select>
+            <p class="hint" id="plan-hint">See what's in each on the <a href="pricing.html">Pricing page</a>.</p>
+          </div>
+          <div class="field field--full">
             <label for="details">About the project <span class="req">(required)</span></label>
             <textarea class="input" id="details" name="details" required aria-describedby="details-hint details-error"></textarea>
             <p class="hint" id="details-hint">What does your business do, and what should the website help people do: call, book, visit or buy? Any timing we should know about?</p>

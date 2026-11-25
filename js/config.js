@@ -34,6 +34,7 @@ window.SITE = {
   nav: [
     { key: "work", label: "Example sites", href: "work.html" },
     { key: "services", label: "Services", href: "services.html" },
+    { key: "pricing", label: "Pricing", href: "pricing.html" },
     { key: "contact", label: "Contact", href: "contact.html" },
   ],
 
@@ -67,6 +68,58 @@ window.SITE = {
       imageAlt: "Homepage of the Wheatline Detail Co. concept site: dark background, centered headline and a white sedan.",
     },
   ],
+
+  // Pricing (pricing.html, contact form "Plan" field, help bot facts).
+  // Change prices here only. Every project is still confirmed in a written quote.
+  pricing: {
+    tiers: [
+      {
+        id: "launch", name: "Launch", build: 499, monthly: 29,
+        bestFor: "New businesses that need to look legit fast.",
+        features: ["Up to 3 pages", "Custom look from your brand", "Phone-friendly site and contact form", "Basic SEO (titles, Google-ready)", "Hosting, security and upkeep", "15 minutes of edits a month"],
+      },
+      {
+        id: "growth", name: "Growth", build: 1199, monthly: 59, featured: true,
+        bestFor: "Established local businesses that want more customers.",
+        features: ["Up to 6 pages", "Custom look plus a gallery or portfolio", "Local SEO, including Google Business Profile setup", "Booking or ordering links", "Visitor stats (analytics)", "Basic brand kit: logo cleanup, icons, share image", "30 minutes of edits a month"],
+      },
+      {
+        id: "pro", name: "Pro + AI", build: 2499, monthly: 129,
+        bestFor: "Busy businesses that answer lots of questions.",
+        features: ["Up to 10 pages", "Advanced design with interactive features", "AI help bot included", "Everything in Growth, plus a quarterly report", "Full brand kit", "60 minutes of priority edits a month"],
+      },
+    ],
+    compare: [
+      { label: "Pages", values: ["Up to 3", "Up to 6", "Up to 10"] },
+      { label: "Custom design from your brand", values: [true, true, true] },
+      { label: "Phone-friendly site and contact form", values: [true, true, true] },
+      { label: "Basic SEO", values: [true, true, true] },
+      { label: "Gallery or portfolio", values: [false, true, true] },
+      { label: "Local SEO (Google Business Profile)", values: [false, true, true] },
+      { label: "Booking or ordering links", values: [false, true, true] },
+      { label: "Visitor stats (analytics)", values: [false, true, "Yes, plus quarterly report"] },
+      { label: "Brand kit", values: [false, "Basic", "Full"] },
+      { label: "Interactive features (menus, estimators, finders)", values: [false, false, true] },
+      { label: "AI help bot", values: ["Add-on", "Add-on", "Included"] },
+      { label: "Hosting, security and upkeep", values: [true, true, true] },
+      { label: "Edit time each month", values: ["15 min", "30 min", "60 min, priority"] },
+    ],
+    aiAddon: {
+      setup: 249, monthly: 39, chats: 1000,
+      features: ["A chat bubble on every page, styled to your brand", "Answers only from facts you approve: services, hours, area, policies", "Hands visitors to your contact form or phone when it doesn't know", "Monthly update of the bot's facts when your business changes"],
+    },
+    refresh: [
+      { tier: "Launch", build: 349, monthly: 29 },
+      { tier: "Growth", build: 799, monthly: 59 },
+      { tier: "Pro + AI", build: 1699, monthly: 129 },
+    ],
+    extras: [
+      "Domain registration and renewals",
+      "Paid third-party tools, such as booking apps or business email",
+      "Online stores and custom software",
+      "Copywriting and photography",
+    ],
+  },
 
   // Example sites. All eight are concept sites for fictional businesses.
   workFilters: ["All", "Food & drink", "Fitness & sport", "Local services", "Studios & spaces"],

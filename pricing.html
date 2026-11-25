@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HQ Agency | Pricing: website packages and AI help bot</title>
+  <meta name="description" content="HQ Agency website pricing: Launch, Growth and Pro + AI packages, an AI help bot add-on for any business site, and refresh prices." />
+  <meta name="theme-color" content="#f1f2f4" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <meta property="og:site_name" content="HQ Agency" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="HQ Agency | Pricing" />
+  <meta property="og:description" content="HQ Agency website pricing: Launch, Growth and Pro + AI packages, an AI help bot add-on for any business site, and refresh prices." />
+  <meta property="og:url" content="https://adminus-hqagency.github.io/hqagency-site/pricing.html" />
+  <meta property="og:image" content="https://adminus-hqagency.github.io/hqagency-site/assets/brand/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="HQ Agency: New websites. And old ones, made new." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="js/config.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/help-bot.js" defer></script>
+</head>
+<body>
+  <site-header current="pricing"></site-header>
+
+  <main id="main">
+    <header class="container page-intro">
+      <p class="eyebrow">Pricing</p>
+      <div class="page-intro__row">
+        <h1 class="display">Clear prices. No surprises.</h1>
+        <p class="lede">Every package is a one-time build fee plus a monthly plan that covers hosting, upkeep and small edits. We confirm everything in a written quote before any work starts.</p>
+      </div>
+    </header>
+
+    <!-- PRICING TIERS (pattern 17): from js/config.js pricing.tiers -->
+    <section class="container" aria-label="Website packages" style="padding-bottom:var(--section)">
+      <div class="tiers" data-pricing-tiers></div>
+      <p class="tiers__note">Prices in US dollars. Monthly plans run for at least 6 months, then month to month. You always own your domain.</p>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section class="section tone-2" aria-labelledby="compare-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Compare</p>
+            <h2 class="display h2" id="compare-title">What's in each package</h2>
+          </div>
+        </div>
+        <div class="compare-wrap" data-pricing-compare></div>
+      </div>
+    </section>
+
+    <!-- AI HELP BOT ADD-ON -->
+    <section class="section dark" aria-labelledby="ai-title">
+      <div class="container addon">
+        <div>
+          <p class="eyebrow">Add-on for any business website</p>
+          <h2 class="display h2" id="ai-title">AI help bot</h2>
+          <p class="lede">A chat assistant that answers your customers' questions day and night, from facts you approve. It works on any website, including ones we didn't build.</p>
+          <p class="addon__price" data-ai-price></p>
+          <div class="cta__row">
+            <a class="btn" href="contact.html?plan=ai-bot">Add a help bot</a>
+            <a class="link-arrow" href="#" data-open-bot>Try ours <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <ul class="addon__list" data-ai-features></ul>
+      </div>
+    </section>
+
+    <!-- REFRESH PRICES + WHAT'S SEPARATE -->
+    <section class="section" aria-labelledby="refresh-title">
+      <div class="container refresh">
+        <div>
+          <p class="eyebrow">Already have a site?</p>
+          <h2 class="display h2" id="refresh-title">Refresh prices</h2>
+          <p class="lede">A refresh reuses your content, domain and page addresses, so the build fee is lower. The monthly plan is the same.</p>
+          <div data-refresh-table></div>
+        </div>
+        <div>
+          <p class="eyebrow">Billed separately</p>
+          <ul class="fit-list" data-pricing-extras></ul>
+          <p class="refresh__note">Extra work beyond your monthly edit time is quoted before we start.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BAND (pattern 13) -->
+    <section class="dark cta" aria-labelledby="cta-title">
+      <div class="container">
+        <p class="eyebrow">Start a project</p>
+        <h2 class="display h2 cta__title" id="cta-title" style="margin-top:1rem">Not sure which fits? <span class="hl">Ask us.</span></h2>
+        <div class="cta__row">
+          <a class="btn" href="contact.html">Get a quote</a>
+          <a class="link-arrow" href="work.html">See example sites <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <site-footer></site-footer>
+</body>
+</html>

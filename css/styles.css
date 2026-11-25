@@ -838,3 +838,59 @@ select.input {
   .hqbot__panel { width: calc(100vw - 1.5rem); height: calc(100dvh - 6.5rem); }
 }
 @media (prefers-reduced-motion: reduce) { .hqbot__dots i { animation: none; opacity: 0.7; } }
+
+/* =========================================================================
+   PRICING (pricing.html) — pattern 17: tier cards, compare table, add-on band
+   ========================================================================= */
+.tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 1.75rem); align-items: stretch; }
+@media (max-width: 960px) { .tiers { grid-template-columns: 1fr; max-width: 560px; } }
+.tier {
+  position: relative; display: flex; flex-direction: column; gap: 0.5rem;
+  padding: clamp(1.5rem, 3vw, 2rem); background: var(--surface);
+  border: 1px solid var(--line); border-top: 4px solid var(--ink); border-radius: var(--radius);
+}
+.tier--featured { border: 2px solid var(--ink); border-top: 8px solid var(--accent); }
+.tier__badge {
+  position: absolute; top: -0.1rem; right: 1.25rem; transform: translateY(-50%);
+  padding: 0.25rem 0.7rem; background: var(--ink); color: var(--on-ink); border-radius: var(--radius);
+  font-size: 0.8125rem; font-weight: 700;
+}
+.tier__name { font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; }
+.tier__for { color: var(--gray-700); min-height: 3em; }
+.tier__price { margin-top: 0.75rem; display: flex; align-items: baseline; gap: 0.4rem; }
+.tier__amount { font-family: var(--font-display); font-size: clamp(2.4rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+.tier__unit { color: var(--gray-500); font-weight: 600; }
+.tier__monthly { font-weight: 700; font-size: 1.125rem; }
+.tier__list { list-style: none; margin: 1rem 0 1.5rem; border-top: 1px solid var(--line); flex: 1; }
+.tier__list li { position: relative; padding: 0.6rem 0 0.6rem 1.6rem; border-bottom: 1px solid var(--line); color: var(--gray-700); }
+.tier__list li::before { content: ""; position: absolute; left: 0.15rem; top: 1.05rem; width: 0.6rem; height: 0.6rem; background: var(--accent); border-radius: 2px; }
+.tier .btn { width: 100%; }
+.tiers__note { margin-top: 1.5rem; color: var(--gray-500); font-size: 0.9375rem; }
+
+.compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.compare { width: 100%; min-width: 620px; border-collapse: collapse; background: var(--surface); border-radius: var(--radius); overflow: hidden; }
+.compare--small { min-width: 0; margin-top: 1.5rem; }
+.compare th, .compare td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+.compare thead th { background: var(--ink); color: var(--on-ink); font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; }
+.compare thead th span { display: block; font-family: var(--font-sans); font-weight: 500; font-size: 0.8125rem; color: var(--on-ink-muted); }
+.compare tbody th { font-weight: 600; width: 34%; }
+.compare td { color: var(--gray-700); }
+.compare .yes { color: var(--ink); font-weight: 800; font-size: 1.1rem; }
+.compare .no { color: var(--gray-500); }
+
+.addon { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+@media (max-width: 900px) { .addon { grid-template-columns: 1fr; } }
+.addon .display { margin-top: 1rem; }
+.addon .lede { margin-top: 1.25rem; }
+.addon__price { margin-top: 1.5rem; font-size: 1.125rem; color: var(--on-ink-muted); }
+.addon__price strong { color: var(--on-ink); font-family: var(--font-display); font-size: 1.5rem; }
+.addon__list { list-style: none; border-top: 1px solid var(--line-ink); }
+.addon__list li { position: relative; padding: 0.9rem 0 0.9rem 1.6rem; border-bottom: 1px solid var(--line-ink); color: var(--on-ink); }
+.addon__list li::before { content: ""; position: absolute; left: 0.15rem; top: 1.35rem; width: 0.6rem; height: 0.6rem; background: var(--accent); border-radius: 2px; }
+
+.refresh { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+@media (max-width: 900px) { .refresh { grid-template-columns: 1fr; } }
+.refresh .display { margin-top: 1rem; }
+.refresh .lede { margin-top: 1.25rem; }
+.refresh .fit-list { margin-top: 1.25rem; }
+.refresh__note { margin-top: 1.25rem; color: var(--gray-500); font-size: 0.9375rem; }

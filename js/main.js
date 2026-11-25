@@ -108,6 +108,53 @@
     }
   }
 
+  /* ---------- Pricing (pricing.html), from SITE.pricing ---------- */
+  const pr = site.pricing;
+  const money = (n) => "$" + Number(n).toLocaleString("en-US");
+  const tiersEl = document.querySelector("[data-pricing-tiers]");
+  if (pr && tiersEl) {
+    tiersEl.innerHTML = pr.tiers.map((t) => `
+      <article class="tier${t.featured ? " tier--featured" : ""}" aria-labelledby="tier-${esc(t.id)}">
+        ${t.featured ? '<p class="tier__badge">Most popular</p>' : ""}
+        <h2 class="tier__name" id="tier-${esc(t.id)}">${esc(t.name)}</h2>
+        <p class="tier__for">${esc(t.bestFor)}</p>
+        <p class="tier__price"><span class="tier__amount">${money(t.build)}</span> <span class="tier__unit">build</span></p>
+        <p class="tier__monthly">+ ${money(t.monthly)}/month</p>
+        <ul class="tier__list">${t.features.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>
+        <a class="btn${t.featured ? "" : " btn--dark"}" href="contact.html?plan=${esc(t.id)}">Choose ${esc(t.name)}</a>
+      </article>`).join("");
+  }
+  const cmpEl = document.querySelector("[data-pricing-compare]");
+  if (pr && cmpEl) {
+    const cell = (v) => v === true ? '<span class="yes" aria-label="Included">&#10003;</span>'
+      : v === false ? '<span class="no" aria-label="Not included">&ndash;</span>' : esc(v);
+    cmpEl.innerHTML = `<table class="compare">
+      <caption class="visually-hidden">Features in each package</caption>
+      <thead><tr><th scope="col"><span class="visually-hidden">Feature</span></th>${pr.tiers.map((t) => `<th scope="col">${esc(t.name)}<span>${money(t.build)} + ${money(t.monthly)}/mo</span></th>`).join("")}</tr></thead>
+      <tbody>${pr.compare.map((r) => `<tr><th scope="row">${esc(r.label)}</th>${r.values.map((v) => `<td>${cell(v)}</td>`).join("")}</tr>`).join("")}</tbody>
+    </table>`;
+  }
+  const aiPrice = document.querySelector("[data-ai-price]");
+  if (pr && aiPrice) {
+    const a = pr.aiAddon;
+    aiPrice.innerHTML = `<strong>${money(a.setup)}</strong> setup + <strong>${money(a.monthly)}/month</strong>, up to ${a.chats.toLocaleString("en-US")} chats a month. Included in Pro + AI.`;
+    document.querySelector("[data-ai-features]").innerHTML = a.features.map((f) => `<li>${esc(f)}</li>`).join("");
+  }
+  const refreshEl = document.querySelector("[data-refresh-table]");
+  if (pr && refreshEl) {
+    refreshEl.innerHTML = `<table class="compare compare--small">
+      <caption class="visually-hidden">Refresh prices</caption>
+      <thead><tr><th scope="col">Refresh of</th><th scope="col">Build fee</th><th scope="col">Monthly</th></tr></thead>
+      <tbody>${pr.refresh.map((r) => `<tr><th scope="row">${esc(r.tier)}</th><td>${money(r.build)}</td><td>${money(r.monthly)}/mo</td></tr>`).join("")}</tbody>
+    </table>`;
+    document.querySelector("[data-pricing-extras]").innerHTML = pr.extras.map((x) => `<li>${esc(x)}</li>`).join("");
+  }
+  document.querySelectorAll("[data-open-bot]").forEach((a) => {
+    const launch = () => document.querySelector(".hqbot__launch");
+    if (!site.helpBot || !site.helpBot.endpoint) { a.hidden = true; return; }
+    a.addEventListener("click", (e) => { e.preventDefault(); const l = launch(); if (l && l.getAttribute("aria-expanded") !== "true") l.click(); });
+  });
+
   /* ---------- Contact form ---------- */
   const form = document.querySelector("[data-contact-form]");
   if (form) {
@@ -116,6 +163,18 @@
       svc.insertAdjacentHTML("beforeend", site.services.map((s) => `<option>${esc(s.title)}</option>`).join("") + "<option>Something else</option>");
       const pre = new URLSearchParams(location.search).get("service");
       if (pre && [...svc.options].some((o) => o.value === pre)) svc.value = pre;
+    }
+    const planSel = form.querySelector("#plan");
+    if (planSel && site.pricing) {
+      const opts = [...site.pricing.tiers.map((t) => ({ id: t.id, label: `${t.name} (${money(t.build)} + ${money(t.monthly)}/mo)` })),
+        { id: "ai-bot", label: `AI help bot add-on (${money(site.pricing.aiAddon.setup)} + ${money(site.pricing.aiAddon.monthly)}/mo)` },
+        { id: "unsure", label: "Not sure yet" }];
+      planSel.insertAdjacentHTML("beforeend", opts.map((o) => `<option value="${esc(o.id)}">${esc(o.label)}</option>`).join(""));
+      const plan = new URLSearchParams(location.search).get("plan");
+      if (plan && opts.some((o) => o.id === plan)) {
+        planSel.value = plan;
+        if (svc && !svc.value) svc.value = plan === "ai-bot" ? "Something else" : "New website";
+      }
     }
     const setup = form.querySelector("[data-setup-notice]");
     if (setup && !site.form.endpoint && /^(localhost|127\.0\.0\.1)$/.test(location.hostname)) setup.hidden = false;
