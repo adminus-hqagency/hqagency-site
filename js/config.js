@@ -32,8 +32,11 @@ window.SITE = {
     { key: "contact", label: "Contact", href: "contact.html" },
   ],
 
-  // Form service endpoint (e.g. Formspree). "" = not connected.
-  form: { endpoint: "" },
+  // Where the contact form sends messages:
+  //   "netlify"                        = Netlify Forms (site must be hosted on Netlify)
+  //   "https://formspree.io/f/xxxxxx"  = Formspree or another form service
+  //   ""                               = not connected (the form says nothing was sent)
+  form: { endpoint: "netlify" },
 
   services: [
     {

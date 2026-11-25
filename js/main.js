@@ -143,11 +143,14 @@
       const btn = form.querySelector('[type="submit"]');
       btn.disabled = true;
       try {
-        const res = await fetch(site.form.endpoint, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } });
+        const data = new FormData(form);
+        const res = site.form.endpoint === "netlify"
+          ? await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(data).toString() })
+          : await fetch(site.form.endpoint, { method: "POST", body: data, headers: { Accept: "application/json" } });
         if (!res.ok) throw new Error();
         form.hidden = true;
         result.hidden = false;
-        result.innerHTML = `<h2 class="display">Message sent</h2><p>Thanks. We'll be in touch soon. We reply by email. Sending a message doesn't commit you to anything.</p>`;
+        result.innerHTML = `<h2 class="display">Message sent</h2><p>Thanks. We'll reply by email soon. Sending a message doesn't commit you to anything.</p>`;
         result.focus();
       } catch {
         const n = form.querySelector("[data-send-error]");

@@ -36,10 +36,11 @@
     <!-- CONTACT GRID (pattern 14). Set SITE.form.endpoint in js/config.js to deliver messages. -->
     <section class="container contact-grid" aria-label="Project form and what happens next" style="padding-bottom:var(--section)">
       <div>
-        <form class="form" data-contact-form novalidate>
+        <form class="form" name="contact" method="POST" action="/contact.html" data-netlify="true" netlify-honeypot="_gotcha" data-contact-form novalidate>
+          <input type="hidden" name="form-name" value="contact" />
           <p class="notice notice--setup" data-setup-notice tabindex="-1" hidden>
             <strong>Owner note (only shown on your computer)</strong>
-            This form isn't connected yet, so messages are not sent. Add a Formspree endpoint in <code>js/config.js</code> &rarr; <code>form.endpoint</code>.
+            This form isn't connected yet, so messages are not sent. Set <code>form.endpoint</code> in <code>js/config.js</code> (see README).
           </p>
           <div class="field">
             <label for="name">Name <span class="req">(required)</span></label>

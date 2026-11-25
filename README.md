@@ -16,12 +16,15 @@ Then open http://localhost:8743.
 
 Business details, nav, services and the example sites list are all in `js/config.js` (`window.SITE`). Empty values are hidden on the site. Page copy is in the HTML.
 
-## Connect the contact form
+## Contact form
 
-1. Make a free form at https://formspree.io and copy its endpoint (like `https://formspree.io/f/abcdwxyz`).
-2. Paste it into `form.endpoint` in `js/config.js`.
+The form uses **Netlify Forms** (`form.endpoint: "netlify"` in `js/config.js`), so it only sends when the site is hosted on Netlify.
 
-Until then, the form checks the fields and then tells visitors plainly that nothing was sent.
+1. In Netlify: your site → **Forms** → **Enable form detection**.
+2. Redeploy (drag this folder onto **Deploys**). A form called `contact` appears under Forms.
+3. To get each message by email: **Site configuration → Notifications → Emails and webhooks → Form submission notifications → Add notification → Email notification**, form `contact`.
+
+To use Formspree instead, paste its endpoint into `form.endpoint`. With `""`, the form tells visitors plainly that nothing was sent.
 
 ## Publish
 
