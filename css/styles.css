@@ -8,19 +8,19 @@
 :root {
   /* HQ Agency tokens (see ../BRIEF.md → Direction). Contrast against the named background. */
   /* Color */
-  --ink: #101216;            /* near-black, cool */
+  --ink: #0b0b0c;            /* HQ Black (brand identity v2) */
   --ink-2: #1a1d22;
   --ink-3: #262a31;
-  --paper: #f1f2f4;          /* cool white (not Pyn's warm paper) */
-  --paper-2: #e4e6ea;
+  --paper: #f4f4f2;          /* Paper: neutral white (not Pyn's warm #f4f2ee) */
+  --paper-2: #e8e8e5;
   --gray-700: #3f444c;       /* body text on paper  (≈ 9.6:1) */
   --gray-500: #5d636c;       /* muted text on paper (≈ 5.6:1) */
-  --line: #cfd3d9;
-  --on-ink: #f1f2f4;
+  --line: #d6d6d2;
+  --on-ink: #f4f4f2;
   --on-ink-muted: #a3a9b2;   /* muted text on ink   (≈ 8:1) */
   --line-ink: rgba(var(--paper-rgb), 0.14);
-  --ink-rgb: 16, 18, 22;
-  --paper-rgb: 241, 242, 244;
+  --ink-rgb: 11, 11, 12;
+  --paper-rgb: 244, 244, 242;
   --surface: #ffffff;
   --accent: #ff5b23;         /* HQ orange: fills only, always with ink text (ink on orange ≈ 6.4:1) */
   --on-accent: var(--ink);
@@ -785,15 +785,11 @@ select.input {
    HELP BOT (js/help-bot.js): chat bubble bottom-right, panel above it
    ========================================================================= */
 .hqbot { position: fixed; right: clamp(0.75rem, 2.5vw, 1.5rem); bottom: clamp(0.75rem, 2.5vw, 1.5rem); z-index: 60; display: flex; flex-direction: column-reverse; align-items: flex-end; gap: 0.75rem; }
-.hqbot__tile {
-  position: relative; display: grid; place-items: center; flex: none; width: 30px; height: 30px;
-  background: var(--on-ink); color: var(--ink); border-radius: 7px; font-family: var(--font-display); font-weight: 800; font-size: 0.8rem;
-}
-.hqbot__tile::after { content: ""; position: absolute; right: 0; top: 0; width: 9px; height: 9px; background: var(--accent); border-radius: 0 7px 0 2px; }
+.hqbot__tile { display: block; flex: none; width: 30px; height: 30px; border-radius: 7px; }
 .hqbot__launch {
   display: inline-flex; align-items: center; gap: 0.6rem; min-height: 52px; padding: 0.5rem 1.1rem 0.5rem 0.55rem;
   background: var(--ink); color: var(--on-ink); border: 0; border-radius: 999px; cursor: pointer;
-  font-weight: 700; font-size: 0.9875rem; box-shadow: 0 6px 24px rgba(var(--ink-rgb), 0.28);
+  font-weight: 700; font-size: 0.9875rem; box-shadow: 0 0 0 1.5px rgba(var(--paper-rgb), 0.35), 0 6px 24px rgba(var(--ink-rgb), 0.28);
 }
 .hqbot__launch:hover { background: var(--ink-3); }
 .hqbot.is-open .hqbot__launch-label::after { content: " ×"; }
@@ -834,7 +830,7 @@ select.input {
 @media (max-width: 520px) {
   .hqbot__launch-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .hqbot__launch { padding: 0.5rem; width: 56px; height: 56px; justify-content: center; }
-  .hqbot__launch .hqbot__tile { width: 36px; height: 36px; font-size: 0.95rem; }
+  .hqbot__launch .hqbot__tile { width: 36px; height: 36px; }
   .hqbot__panel { width: calc(100vw - 1.5rem); height: calc(100dvh - 6.5rem); }
 }
 @media (prefers-reduced-motion: reduce) { .hqbot__dots i { animation: none; opacity: 0.7; } }

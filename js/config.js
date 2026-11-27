@@ -23,8 +23,8 @@ window.SITE = {
   },
 
   logo: {
-    src: "assets/brand/hq-logo-horizontal.svg",          // from brand-kit/svg
-    srcOnDark: "assets/brand/hq-logo-horizontal-white.svg",
+    src: "assets/brand/hq-logo-black.svg",          // from brand-identity/svg
+    srcOnDark: "assets/brand/hq-logo-white.svg",
     alt: "HQ Agency",
     height: 34,
   },

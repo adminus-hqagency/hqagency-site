@@ -34,11 +34,11 @@
   root.className = "hqbot";
   root.innerHTML = `
     <button class="hqbot__launch" type="button" aria-expanded="false" aria-controls="hqbot-panel">
-      <span class="hqbot__tile" aria-hidden="true">HQ</span><span class="hqbot__launch-label">Questions? Ask HQ</span>
+      <img class="hqbot__tile" src="assets/brand/hq-favicon.svg" alt="" width="30" height="30"><span class="hqbot__launch-label">Questions? Ask HQ</span>
     </button>
     <section class="hqbot__panel" id="hqbot-panel" role="dialog" aria-modal="false" aria-labelledby="hqbot-title" hidden>
       <header class="hqbot__head">
-        <span class="hqbot__tile" aria-hidden="true">HQ</span>
+        <img class="hqbot__tile" src="assets/brand/hq-favicon.svg" alt="" width="30" height="30">
         <div><h2 class="hqbot__title" id="hqbot-title">HQ help</h2><p class="hqbot__sub">AI assistant · answers can be wrong</p></div>
         <button class="hqbot__close" type="button" aria-label="Close chat">&times;</button>
       </header>
