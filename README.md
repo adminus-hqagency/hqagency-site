@@ -22,6 +22,10 @@ Messages go to **Formspree** (`form.endpoint` in `js/config.js`, and the form's 
 
 To switch to Netlify Forms, set `form.endpoint` to `"netlify"` and add `data-netlify="true"` plus a hidden `form-name` field to the form. With `""`, the form tells visitors plainly that nothing was sent.
 
+## Cache busting
+
+Pages load CSS, JS and icons with `?v=YYYYMMDD`. After changing any of those files, update the date in all five pages (and the logo/icon paths in `js/config.js` and `js/help-bot.js`) so visitors' browsers fetch the new versions.
+
 ## Publish
 
 Netlify: drag this `site` folder onto your site's **Deploys** page. GitHub Pages: Settings → Pages → `main` / root.
