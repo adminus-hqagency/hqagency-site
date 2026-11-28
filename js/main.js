@@ -150,9 +150,8 @@
     document.querySelector("[data-pricing-extras]").innerHTML = pr.extras.map((x) => `<li>${esc(x)}</li>`).join("");
   }
   document.querySelectorAll("[data-open-bot]").forEach((a) => {
-    const launch = () => document.querySelector(".hqbot__launch");
     if (!site.helpBot || !site.helpBot.endpoint) { a.hidden = true; return; }
-    a.addEventListener("click", (e) => { e.preventDefault(); const l = launch(); if (l && l.getAttribute("aria-expanded") !== "true") l.click(); });
+    a.addEventListener("click", (e) => { e.preventDefault(); if (window.HQBot && window.HQBot.open) window.HQBot.open(); });
   });
 
   /* ---------- Contact form ---------- */

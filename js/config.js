@@ -23,8 +23,8 @@ window.SITE = {
   },
 
   logo: {
-    src: "assets/brand/hq-logo-black.svg?v=20261127",          // from brand-identity/svg
-    srcOnDark: "assets/brand/hq-logo-white.svg?v=20261127",
+    src: "assets/brand/hq-logo-black.svg?v=20261128",          // from brand-identity/svg
+    srcOnDark: "assets/brand/hq-logo-white.svg?v=20261128",
     alt: "HQ Agency",
     height: 34,
   },
@@ -44,8 +44,8 @@ window.SITE = {
   //   ""                               = not connected (the form says nothing was sent)
   form: { endpoint: "https://formspree.io/f/mgakrgeb" },
 
-  // AI help bot (js/help-bot.js). Paste the Cloudflare Worker's address + "/chat",
-  // e.g. "https://hq-help-bot.yourname.workers.dev/chat". "" = bot hidden.
+  // AI help bot: runs from the help-bot template (client "hq-agency"); the chat window is
+  // loaded from the Worker by a script tag on each page. "" here hides the "Try ours" link.
   helpBot: { endpoint: "https://hq-help-bot.hq-help-bot.workers.dev/chat" },
 
   services: [
